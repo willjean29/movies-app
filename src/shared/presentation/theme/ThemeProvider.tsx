@@ -1,6 +1,9 @@
 import React, {createContext, useContext, useEffect, useState} from 'react';
 import {Appearance, StatusBar} from 'react-native';
+import {ThemeProvider as StyledThemeProvider} from 'styled-components/native';
 import {Theme, ThemeProviderProps, ThemeState} from '../../domain/theme-state';
+import darkTheme from './dark';
+import lightTheme from './light';
 
 const ThemeStateContext = createContext<ThemeState | undefined>(undefined);
 
@@ -19,10 +22,15 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({children}) => {
   }, []);
   return (
     <ThemeStateContext.Provider value={{mode: themeState, setMode}}>
-      <StatusBar
-        barStyle={themeState === 'light' ? 'dark-content' : 'light-content'}
-      />
-      {children}
+      <StyledThemeProvider
+        theme={themeState === 'light' ? lightTheme : darkTheme}>
+        <>
+          <StatusBar
+            barStyle={themeState === 'light' ? 'dark-content' : 'light-content'}
+          />
+          {children}
+        </>
+      </StyledThemeProvider>
     </ThemeStateContext.Provider>
   );
 };
