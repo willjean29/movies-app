@@ -1,4 +1,5 @@
 import {ViewProps} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import styled from 'styled-components/native';
 
 interface ExtraContainerProps {
@@ -7,9 +8,15 @@ interface ExtraContainerProps {
 type ContainerProps = ViewProps & ExtraContainerProps;
 const StyledContainerComponent: React.FC<ContainerProps> = ({
   children,
+  style,
   ...props
 }) => {
-  return <StyledContainer {...props}>{children}</StyledContainer>;
+  const {top} = useSafeAreaInsets();
+  return (
+    <StyledContainer style={[{paddingTop: top}, style]} {...props}>
+      {children}
+    </StyledContainer>
+  );
 };
 
 const StyledContainer = styled.View`
