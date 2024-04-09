@@ -3,6 +3,7 @@ import {
   Button,
   Container,
   Divider,
+  TextInput,
   Text,
 } from '../../../../../shared/presentation/components';
 import {Image, View} from 'react-native';
@@ -14,7 +15,7 @@ const Login = () => {
         paddingHorizontal: 20,
       }}>
       {/* container logo and form */}
-      <View style={{flex: 0.8}}>
+      <View style={{flex: 0.7}}>
         {/* container logo and buttons */}
         <View
           style={{
@@ -47,6 +48,7 @@ const Login = () => {
               size="BodyMedium"
               style={{
                 textAlign: 'center',
+                color: 'gray',
               }}>
               Login into your account using email or social networks
             </Text>
@@ -55,6 +57,7 @@ const Login = () => {
 
         <Button mode="outlined">Login with Apple</Button>
         <Button mode="outlined">Login with Google</Button>
+
         <View
           style={{
             width: '100%',
@@ -62,15 +65,18 @@ const Login = () => {
             justifyContent: 'space-between',
             alignItems: 'center',
             gap: 10,
-            marginVertical: 10,
+            marginVertical: 20,
           }}>
           <Divider flexible />
 
-          <Text size="BodyMedium" style={{textAlign: 'center'}}>
+          <Text size="BodyMedium" style={{textAlign: 'center', color: 'gray'}}>
             Or continue with social account
           </Text>
           <Divider flexible />
         </View>
+        <TextInput placeholder="Email" />
+        <TextInput placeholder="Password" icon="eye-off-outline" />
+
         <Text
           size="BodyMedium"
           style={{
@@ -84,12 +90,10 @@ const Login = () => {
       {/* container buttons */}
       <View
         style={{
-          flex: 0.2,
+          flex: 0.3,
           justifyContent: 'center',
         }}>
-        <Button style={{height: 50}} mode="contained">
-          Login
-        </Button>
+        <Button mode="contained">Login</Button>
         <Text
           size="BodyMedium"
           style={{
