@@ -11,7 +11,7 @@ const Home = () => {
     <View>
       <SafeAreaView>
         <Text>HOME PAGE src</Text>
-        <Button />
+        <Button>Login</Button>
       </SafeAreaView>
     </View>
   );

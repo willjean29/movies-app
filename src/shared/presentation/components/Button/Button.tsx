@@ -1,15 +1,15 @@
-import React from 'react';
-import {Text, TouchableOpacityProps} from 'react-native';
+import {TouchableOpacityProps} from 'react-native';
 import styled from 'styled-components/native';
+import {Text} from '../';
 interface ExtraButtonProps {
-  text?: string;
+  children: React.ReactNode;
 }
 type ButtonProps = TouchableOpacityProps & ExtraButtonProps;
 
-const Button: React.FC<ButtonProps> = ({text = 'Login'}) => {
+const Button: React.FC<ButtonProps> = ({children}) => {
   return (
     <ButtonContainer>
-      <Text>{text}</Text>
+      <Text size="BodyLarge">{children}</Text>
     </ButtonContainer>
   );
 };
@@ -17,7 +17,7 @@ const Button: React.FC<ButtonProps> = ({text = 'Login'}) => {
 const ButtonContainer = styled.TouchableOpacity`
   background-color: ${props => props.theme.colors.primary};
   width: '100%';
-  height: 40px;
+  height: auto;
   padding: 10px;
   border-radius: 5px;
   margin: 0px 10px;
