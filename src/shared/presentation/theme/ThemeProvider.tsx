@@ -5,6 +5,8 @@ import {Theme, ThemeProviderProps, ThemeState} from '../../domain/theme-state';
 import darkTheme from './dark';
 import lightTheme from './light';
 
+export type TypeTheme = typeof lightTheme;
+
 const ThemeStateContext = createContext<ThemeState | undefined>(undefined);
 
 const defaultMode = Appearance.getColorScheme() || 'light';

@@ -14,10 +14,9 @@ const StyledDividerComponent: React.FC<StyledDividerComponentProps> = ({
 
 const StyledDivider = styled.View<ExtraStyledDividerComponentProps>`
   width: 100%;
-  opacity: 0.2;
   height: 2px;
   border-radius: 2px;
-  background-color: ${props => props.theme.colors.gray};
+  background-color: ${props => props.theme.colors.border};
   ${props =>
     props.flexible &&
     css`

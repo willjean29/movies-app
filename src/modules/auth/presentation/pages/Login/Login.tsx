@@ -53,6 +53,8 @@ const Login = () => {
           </View>
         </View>
 
+        <Button mode="outlined">Login with Apple</Button>
+        <Button mode="outlined">Login with Google</Button>
         <View
           style={{
             width: '100%',
@@ -60,6 +62,7 @@ const Login = () => {
             justifyContent: 'space-between',
             alignItems: 'center',
             gap: 10,
+            marginVertical: 10,
           }}>
           <Divider flexible />
 
@@ -68,12 +71,6 @@ const Login = () => {
           </Text>
           <Divider flexible />
         </View>
-        <Button style={{marginVertical: 5, height: 50}}>
-          Login with Apple
-        </Button>
-        <Button style={{marginVertical: 5, height: 50}}>
-          Login with Google
-        </Button>
         <Text
           size="BodyMedium"
           style={{
@@ -90,7 +87,9 @@ const Login = () => {
           flex: 0.2,
           justifyContent: 'center',
         }}>
-        <Button style={{height: 50}}>Login</Button>
+        <Button style={{height: 50}} mode="contained">
+          Login
+        </Button>
         <Text
           size="BodyMedium"
           style={{

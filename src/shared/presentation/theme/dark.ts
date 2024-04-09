@@ -12,9 +12,10 @@ const Dark = {
     gray: '#A9A2A3',
     success: '#34A853',
     error: '#FF515A',
-    text1: '#130D0E',
-    text2: '#A9A2A3',
+    primaryText: '#130D0E',
+    secondaryText: '#A9A2A3',
     notification: '#F2994A',
+    border: 'rgba(169, 162, 163, 0.2)',
   },
 };
 
