@@ -1,20 +1,20 @@
 import {TouchableOpacityProps} from 'react-native';
 import styled from 'styled-components/native';
 import {Text} from '../';
-interface ExtraButtonProps {
+interface ExtraStyledButtonProps {
   children: React.ReactNode;
 }
-type ButtonProps = TouchableOpacityProps & ExtraButtonProps;
+type StyledButtonProps = TouchableOpacityProps & ExtraStyledButtonProps;
 
-const Button: React.FC<ButtonProps> = ({children}) => {
+const StyledButtonComponent: React.FC<StyledButtonProps> = ({children}) => {
   return (
-    <ButtonContainer>
+    <StyledButton>
       <Text size="BodyLarge">{children}</Text>
-    </ButtonContainer>
+    </StyledButton>
   );
 };
 
-const ButtonContainer = styled.TouchableOpacity`
+const StyledButton = styled.TouchableOpacity`
   background-color: ${props => props.theme.colors.primary};
   width: '100%';
   height: auto;
@@ -25,4 +25,4 @@ const ButtonContainer = styled.TouchableOpacity`
   justify-content: center;
 `;
 
-export default Button;
+export default StyledButtonComponent;
