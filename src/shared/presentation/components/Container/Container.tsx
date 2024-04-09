@@ -2,11 +2,13 @@ import {ViewProps} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import styled from 'styled-components/native';
 
-interface ExtraContainerProps {
+interface ExtraStyledContainerComponentProps {
   children: React.ReactNode;
 }
-type ContainerProps = ViewProps & ExtraContainerProps;
-const StyledContainerComponent: React.FC<ContainerProps> = ({
+type StyledContainerComponentProps = ViewProps &
+  ExtraStyledContainerComponentProps;
+
+const StyledContainerComponent: React.FC<StyledContainerComponentProps> = ({
   children,
   style,
   ...props

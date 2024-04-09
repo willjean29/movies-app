@@ -1,12 +1,12 @@
 import {TextProps} from 'react-native';
 import styled from 'styled-components/native';
 import {FontSize, FontSizeType} from './font-sizes';
-interface ExtraTextProps {
+interface ExtraStyledTextComponentProps {
   children: React.ReactNode;
   size: FontSizeType;
 }
 
-type StyledTextComponentProps = TextProps & ExtraTextProps;
+type StyledTextComponentProps = TextProps & ExtraStyledTextComponentProps;
 
 const StyledTextComponent: React.FC<StyledTextComponentProps> = ({
   children,
@@ -20,7 +20,9 @@ const StyledTextComponent: React.FC<StyledTextComponentProps> = ({
   );
 };
 
-interface StyledTextProps extends Omit<ExtraTextProps, 'children'> {}
+interface StyledTextProps
+  extends Omit<ExtraStyledTextComponentProps, 'children'> {}
+
 const StyledText = styled.Text<StyledTextProps>`
   font-size: ${props => FontSize[props.size]};
   color: ${props => props.theme.colors.text};

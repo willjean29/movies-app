@@ -1,18 +1,18 @@
 import React from 'react';
 import {ViewProps} from 'react-native';
 import styled, {css} from 'styled-components/native';
-interface ExtraStyledDividerProps {
+interface ExtraStyledDividerComponentProps {
   flexible?: boolean;
 }
-type StyledDividerProps = ViewProps & ExtraStyledDividerProps;
-const StyledDividerComponent: React.FC<StyledDividerProps> = ({
+type StyledDividerComponentProps = ViewProps & ExtraStyledDividerComponentProps;
+const StyledDividerComponent: React.FC<StyledDividerComponentProps> = ({
   flexible = false,
   ...props
 }) => {
   return <StyledDivider flexible={flexible} {...props} />;
 };
 
-const StyledDivider = styled.View<ExtraStyledDividerProps>`
+const StyledDivider = styled.View<ExtraStyledDividerComponentProps>`
   width: 100%;
   opacity: 0.2;
   height: 2px;

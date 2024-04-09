@@ -1,4 +1,3 @@
-// import {View, Text} from 'react-native';
 import React from 'react';
 import {
   Button,
@@ -19,7 +18,6 @@ const Login = () => {
         {/* container logo and buttons */}
         <View
           style={{
-            // backgroundColor: 'blue',
             alignItems: 'center',
             justifyContent: 'center',
           }}>
@@ -57,25 +55,25 @@ const Login = () => {
 
         <View
           style={{
-            // backgroundColor: 'green',
             width: '100%',
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
-            // flexGrow: 1,
             gap: 10,
           }}>
           <Divider flexible />
 
-          <Text
-            size="BodyMedium"
-            style={{
-              textAlign: 'center',
-            }}>
+          <Text size="BodyMedium" style={{textAlign: 'center'}}>
             Or continue with social account
           </Text>
           <Divider flexible />
         </View>
+        <Button style={{marginVertical: 5, height: 50}}>
+          Login with Apple
+        </Button>
+        <Button style={{marginVertical: 5, height: 50}}>
+          Login with Google
+        </Button>
         <Text
           size="BodyMedium"
           style={{

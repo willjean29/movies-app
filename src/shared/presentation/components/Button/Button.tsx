@@ -1,13 +1,16 @@
 import {TouchableOpacityProps} from 'react-native';
 import styled from 'styled-components/native';
 import {Text} from '../';
-interface ExtraStyledButtonProps {
+interface ExtraStyledButtonComponentProps {
   children: React.ReactNode;
+  mode?: 'text' | 'outlined' | 'contained';
 }
-type StyledButtonProps = TouchableOpacityProps & ExtraStyledButtonProps;
+type StyledButtonComponentProps = TouchableOpacityProps &
+  ExtraStyledButtonComponentProps;
 
-const StyledButtonComponent: React.FC<StyledButtonProps> = ({
+const StyledButtonComponent: React.FC<StyledButtonComponentProps> = ({
   children,
+  mode = 'text',
   ...props
 }) => {
   return (
