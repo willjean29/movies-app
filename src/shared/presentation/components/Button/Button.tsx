@@ -6,9 +6,12 @@ interface ExtraStyledButtonProps {
 }
 type StyledButtonProps = TouchableOpacityProps & ExtraStyledButtonProps;
 
-const StyledButtonComponent: React.FC<StyledButtonProps> = ({children}) => {
+const StyledButtonComponent: React.FC<StyledButtonProps> = ({
+  children,
+  ...props
+}) => {
   return (
-    <StyledButton>
+    <StyledButton {...props}>
       <Text size="BodyLarge">{children}</Text>
     </StyledButton>
   );
@@ -19,8 +22,7 @@ const StyledButton = styled.TouchableOpacity`
   width: '100%';
   height: auto;
   padding: 10px;
-  border-radius: 5px;
-  margin: 0px 10px;
+  border-radius: 10px;
   align-items: center;
   justify-content: center;
 `;

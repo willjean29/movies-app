@@ -23,7 +23,7 @@ const StyledTextComponent: React.FC<StyledTextComponentProps> = ({
 interface StyledTextProps extends Omit<ExtraTextProps, 'children'> {}
 const StyledText = styled.Text<StyledTextProps>`
   font-size: ${props => FontSize[props.size]};
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.text};
   text-align: left;
 `;
 
