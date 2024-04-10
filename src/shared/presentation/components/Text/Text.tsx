@@ -6,6 +6,7 @@ interface ExtraStyledTextComponentProps {
   size: FontSizeType;
   align?: 'left' | 'center' | 'right';
   mode?: 'primary' | 'secondary' | 'link';
+  weight?: 'bold' | 'normal' | 'italic';
 }
 
 type StyledTextComponentProps = TextProps & ExtraStyledTextComponentProps;
@@ -15,10 +16,16 @@ const StyledTextComponent: React.FC<StyledTextComponentProps> = ({
   size,
   align = 'left',
   mode = 'primary',
+  weight = 'normal',
   ...props
 }) => {
   return (
-    <StyledText mode={mode} size={size} align={align} {...props}>
+    <StyledText
+      weight={weight}
+      mode={mode}
+      size={size}
+      align={align}
+      {...props}>
       {children}
     </StyledText>
   );
@@ -29,6 +36,7 @@ interface StyledTextProps
 
 const StyledText = styled.Text<StyledTextProps>`
   font-size: ${props => FontSize[props.size]};
+  font-weight: ${props => props.weight};
   color: ${props => {
     switch (props.mode) {
       case 'primary':

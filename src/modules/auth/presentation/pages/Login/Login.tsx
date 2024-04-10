@@ -8,22 +8,20 @@ import {
   FlexContainer,
   SpacingContainer,
 } from '../../../../../shared/presentation/components';
-import {Image, View} from 'react-native';
+import {Image} from 'react-native';
 
 const Login = () => {
   return (
     <Container>
-      {/* container logo and form */}
       <SpacingContainer flex={1} paddingHorizontal={20}>
         <FlexContainer flex={0.7}>
-          {/* container logo and buttons */}
           <FlexContainer alignItems="center">
             <SpacingContainer marginVertical={20}>
               <Image
                 source={require('../../../../../shared/presentation/assets/logo.png')}
               />
             </SpacingContainer>
-            <Text size="TitleSmall" align="center">
+            <Text size="TitleSmall" align="center" weight="bold">
               Welcome Back
             </Text>
             <SpacingContainer marginVertical={20} marginHorizontal={60}>
@@ -58,7 +56,6 @@ const Login = () => {
           </Text>
         </FlexContainer>
 
-        {/* container buttons */}
         <FlexContainer flex={0.3} justifyContent="center" alignItems="center">
           <Button mode="contained">Login</Button>
           <SpacingContainer marginVertical={20}>
