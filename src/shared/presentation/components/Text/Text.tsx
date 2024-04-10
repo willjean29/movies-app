@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import {FontSize, FontSizeType} from './font-sizes';
 interface ExtraStyledTextComponentProps {
   children: React.ReactNode;
-  size: FontSizeType;
+  size?: FontSizeType;
   align?: 'left' | 'center' | 'right';
   mode?: 'primary' | 'secondary' | 'link';
   weight?: 'bold' | 'normal' | 'italic';
@@ -13,7 +13,7 @@ type StyledTextComponentProps = TextProps & ExtraStyledTextComponentProps;
 
 const StyledTextComponent: React.FC<StyledTextComponentProps> = ({
   children,
-  size,
+  size = 'BodyLarge',
   align = 'left',
   mode = 'primary',
   weight = 'normal',
@@ -35,7 +35,8 @@ interface StyledTextProps
   extends Omit<ExtraStyledTextComponentProps, 'children'> {}
 
 const StyledText = styled.Text<StyledTextProps>`
-  font-size: ${props => FontSize[props.size]};
+  font-size: ${props =>
+    props.size ? FontSize[props.size] : FontSize.BodyLarge};
   font-weight: ${props => props.weight};
   color: ${props => {
     switch (props.mode) {

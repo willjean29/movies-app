@@ -13,11 +13,8 @@ import {Image} from 'react-native';
 const Login = () => {
   return (
     <Container isViewKeyboardAware>
-      <SpacingContainer
-        flex={1}
-        paddingHorizontal={20}
-        style={{backgroundColor: 'blue'}}>
-        <FlexContainer flex={0.7} style={{backgroundColor: 'yellow'}}>
+      <SpacingContainer flex={1} paddingHorizontal={20}>
+        <FlexContainer flex={0.7}>
           <FlexContainer alignItems="center">
             <SpacingContainer marginVertical={20}>
               <Image
@@ -52,23 +49,24 @@ const Login = () => {
           </SpacingContainer>
 
           <TextInput placeholder="Email" />
-          <TextInput placeholder="Password" icon="eye-off-outline" />
+          <TextInput placeholder="Password" iconRight="eye-off-outline" />
 
           <Text size="BodyMedium" mode="link" align="right">
             Forgot your password?
           </Text>
         </FlexContainer>
 
-        <FlexContainer
-          flex={0.3}
-          justifyContent="center"
-          alignItems="center"
-          style={{backgroundColor: 'green'}}>
+        <FlexContainer flex={0.3} justifyContent="center" alignItems="center">
           <Button mode="contained">Login</Button>
           <SpacingContainer marginVertical={20}>
             <Text size="BodyMedium" align="center">
               Didn´t have an account?{' '}
-              <Text size="BodyMedium" mode="link">
+              <Text
+                size="BodyMedium"
+                mode="link"
+                onPress={() => {
+                  console.log('click ');
+                }}>
                 Register
               </Text>
             </Text>

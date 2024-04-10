@@ -5,23 +5,39 @@ import {Icon} from '../';
 import {TypeTheme} from '../../theme/ThemeProvider';
 
 interface ExtraStyledInputComponentProps {
-  icon?: string;
-  size?: number;
+  iconRight?: string;
+  iconLeft?: string;
+  onPressIconRight?: () => void;
+  onPressIconLeft?: () => void;
+  iconSize?: number;
 }
 
 type StyledInputComponentProps = TextInputProps &
   ExtraStyledInputComponentProps;
 
 const StyledInputComponent: React.FC<StyledInputComponentProps> = ({
-  icon,
-  size,
+  iconLeft,
+  iconRight,
+  iconSize,
+  onPressIconRight,
+  onPressIconLeft,
   ...props
 }) => {
   const {colors} = useTheme() as TypeTheme;
   return (
     <StyledInputWrapper>
+      {iconLeft && (
+        <Icon name={iconLeft} size={iconSize || 20} onPress={onPressIconLeft} />
+      )}
+
       <StyledInput placeholderTextColor={colors.primaryText} {...props} />
-      {icon && <Icon name={icon} size={size || 20} />}
+      {iconRight && (
+        <Icon
+          name={iconRight}
+          size={iconSize || 20}
+          onPress={onPressIconRight}
+        />
+      )}
     </StyledInputWrapper>
   );
 };
@@ -38,10 +54,11 @@ const StyledInputWrapper = styled.View`
   padding: 0 20px;
   margin-top: 10px;
   margin-bottom: 10px;
+  gap: 10px;
 `;
 const StyledInput = styled.TextInput`
   font-size: 16px;
-  width: 100%;
+  flex: 1;
   height: 100%;
 `;
 
