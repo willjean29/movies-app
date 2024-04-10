@@ -6,83 +6,71 @@ import {
   TextInput,
   Text,
   FlexContainer,
+  SpacingContainer,
 } from '../../../../../shared/presentation/components';
 import {Image, View} from 'react-native';
 
 const Login = () => {
   return (
-    <Container style={{marginHorizontal: 20}}>
+    <Container>
       {/* container logo and form */}
-      <FlexContainer flex={0.7}>
-        {/* container logo and buttons */}
-        <FlexContainer alignItems="center">
-          <View style={{marginVertical: 20, gap: 10}}>
-            <Image
-              source={require('../../../../../shared/presentation/assets/logo.png')}
-            />
-          </View>
-          <Text size="TitleSmall" align="center">
-            Welcome Back
-          </Text>
-          <View
-            style={{
-              // width: '70%',
-              marginVertical: 10,
-            }}>
-            <Text size="BodyMedium" align="center" mode="secondary">
-              Login into your account using email or social networks
+      <SpacingContainer flex={1} paddingHorizontal={20}>
+        <FlexContainer flex={0.7}>
+          {/* container logo and buttons */}
+          <FlexContainer alignItems="center">
+            <SpacingContainer marginVertical={20}>
+              <Image
+                source={require('../../../../../shared/presentation/assets/logo.png')}
+              />
+            </SpacingContainer>
+            <Text size="TitleSmall" align="center">
+              Welcome Back
             </Text>
-          </View>
-        </FlexContainer>
+            <SpacingContainer marginVertical={20} marginHorizontal={60}>
+              <Text size="BodyMedium" align="center" mode="secondary">
+                Login into your account using email or social networks
+              </Text>
+            </SpacingContainer>
+          </FlexContainer>
 
-        <Button mode="outlined">Login with Apple</Button>
-        <Button mode="outlined">Login with Google</Button>
+          <Button mode="outlined">Login with Apple</Button>
+          <Button mode="outlined">Login with Google</Button>
+          <SpacingContainer marginVertical={20}>
+            <FlexContainer
+              mode="row"
+              justifyContent="center"
+              alignItems="center"
+              gap={10}>
+              <Divider flexible />
 
-        {/* <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: 10,
-            marginVertical: 20,
-          }}>
-          <Divider flexible />
+              <Text size="BodyMedium" mode="secondary">
+                Or continue with social account
+              </Text>
+              <Divider flexible />
+            </FlexContainer>
+          </SpacingContainer>
 
-          <Text size="BodyMedium" mode="secondary">
-            Or continue with social account
-          </Text>
-          <Divider flexible />
-        </View> */}
-        <FlexContainer
-          mode="row"
-          justifyContent="center"
-          alignItems="center"
-          gap={10}>
-          <Divider flexible />
+          <TextInput placeholder="Email" />
+          <TextInput placeholder="Password" icon="eye-off-outline" />
 
-          <Text size="BodyMedium" mode="secondary">
-            Or continue with social account
-          </Text>
-          <Divider flexible />
-        </FlexContainer>
-        <TextInput placeholder="Email" />
-        <TextInput placeholder="Password" icon="eye-off-outline" />
-
-        <Text size="BodyMedium" mode="link" align="right">
-          Forgot your password?
-        </Text>
-      </FlexContainer>
-
-      {/* container buttons */}
-      <FlexContainer flex={0.3} justifyContent="center" alignItems="center">
-        <Button mode="contained">Login</Button>
-        <Text size="BodyMedium" align="center">
-          Didn´t have an account?{' '}
           <Text size="BodyMedium" mode="link" align="right">
-            Register
+            Forgot your password?
           </Text>
-        </Text>
-      </FlexContainer>
+        </FlexContainer>
+
+        {/* container buttons */}
+        <FlexContainer flex={0.3} justifyContent="center" alignItems="center">
+          <Button mode="contained">Login</Button>
+          <SpacingContainer marginVertical={20}>
+            <Text size="BodyMedium" align="center">
+              Didn´t have an account?{' '}
+              <Text size="BodyMedium" mode="link" align="right">
+                Register
+              </Text>
+            </Text>
+          </SpacingContainer>
+        </FlexContainer>
+      </SpacingContainer>
     </Container>
   );
 };

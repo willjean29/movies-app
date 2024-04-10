@@ -34,7 +34,7 @@ const StyledButtonComponent: React.FC<StyledButtonComponentProps> = ({
     }
   };
   return (
-    <StyledButton mode={mode} {...props}>
+    <StyledButton activeOpacity={0.6} mode={mode} {...props}>
       <Text size="BodyLarge" style={[selectStylesText()]}>
         {children}
       </Text>
