@@ -4,4 +4,5 @@ import Container from './Container/Container.tsx';
 import Divider from './Divider/Divider.tsx';
 import TextInput from './TextInput/TextInput.tsx';
 import Icon from './Icon/Icon.tsx';
-export {Text, Button, Container, Divider, TextInput, Icon};
+import FlexContainer from './Container/FlexContainer.tsx';
+export {Text, Button, Container, Divider, TextInput, Icon, FlexContainer};
