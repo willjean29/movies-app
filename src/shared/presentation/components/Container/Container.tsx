@@ -1,9 +1,11 @@
-import {ViewProps} from 'react-native';
+import {View, ViewProps} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styled from 'styled-components/native';
 
 interface ExtraStyledContainerComponentProps {
   children: React.ReactNode;
+  isViewKeyboardAware?: boolean;
 }
 type StyledContainerComponentProps = ViewProps &
   ExtraStyledContainerComponentProps;
@@ -11,12 +13,19 @@ type StyledContainerComponentProps = ViewProps &
 const StyledContainerComponent: React.FC<StyledContainerComponentProps> = ({
   children,
   style,
+  isViewKeyboardAware = false,
   ...props
 }) => {
   const {top} = useSafeAreaInsets();
   return (
     <StyledContainer style={[{paddingTop: top}, style]} {...props}>
-      {children}
+      {isViewKeyboardAware ? (
+        <KeyboardAwareScrollView style={{flex: 1}}>
+          <View style={{minHeight: '100%'}}>{children}</View>
+        </KeyboardAwareScrollView>
+      ) : (
+        children
+      )}
     </StyledContainer>
   );
 };

@@ -12,9 +12,12 @@ import {Image} from 'react-native';
 
 const Login = () => {
   return (
-    <Container>
-      <SpacingContainer flex={1} paddingHorizontal={20}>
-        <FlexContainer flex={0.7}>
+    <Container isViewKeyboardAware>
+      <SpacingContainer
+        flex={1}
+        paddingHorizontal={20}
+        style={{backgroundColor: 'blue'}}>
+        <FlexContainer flex={0.7} style={{backgroundColor: 'yellow'}}>
           <FlexContainer alignItems="center">
             <SpacingContainer marginVertical={20}>
               <Image
@@ -56,12 +59,16 @@ const Login = () => {
           </Text>
         </FlexContainer>
 
-        <FlexContainer flex={0.3} justifyContent="center" alignItems="center">
+        <FlexContainer
+          flex={0.3}
+          justifyContent="center"
+          alignItems="center"
+          style={{backgroundColor: 'green'}}>
           <Button mode="contained">Login</Button>
           <SpacingContainer marginVertical={20}>
             <Text size="BodyMedium" align="center">
               Didn´t have an account?{' '}
-              <Text size="BodyMedium" mode="link" align="right">
+              <Text size="BodyMedium" mode="link">
                 Register
               </Text>
             </Text>

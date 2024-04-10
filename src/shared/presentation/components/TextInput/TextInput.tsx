@@ -41,6 +41,8 @@ const StyledInputWrapper = styled.View`
 `;
 const StyledInput = styled.TextInput`
   font-size: 16px;
+  width: 100%;
+  height: 100%;
 `;
 
 export default StyledInputComponent;
