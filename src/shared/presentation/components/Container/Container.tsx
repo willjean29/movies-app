@@ -5,6 +5,7 @@ import styled from 'styled-components/native';
 
 interface ExtraStyledContainerComponentProps {
   children: React.ReactNode;
+  /** Determines whether a scrollview is used to display when the keyboard is active */
   isViewKeyboardAware?: boolean;
 }
 type StyledContainerComponentProps = ViewProps &

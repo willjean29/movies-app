@@ -7,9 +7,10 @@ import {TypeTheme} from '../../theme/ThemeProvider';
 interface ExtraStyledInputComponentProps {
   iconRight?: string;
   iconLeft?: string;
+  iconSize?: number;
+  error?: boolean;
   onPressIconRight?: () => void;
   onPressIconLeft?: () => void;
-  iconSize?: number;
 }
 
 type StyledInputComponentProps = TextInputProps &
@@ -19,13 +20,14 @@ const StyledInputComponent: React.FC<StyledInputComponentProps> = ({
   iconLeft,
   iconRight,
   iconSize,
+  error,
   onPressIconRight,
   onPressIconLeft,
   ...props
 }) => {
   const {colors} = useTheme() as TypeTheme;
   return (
-    <StyledInputWrapper>
+    <StyledInputWrapper error={error}>
       {iconLeft && (
         <Icon name={iconLeft} size={iconSize || 20} onPress={onPressIconLeft} />
       )}
@@ -42,7 +44,7 @@ const StyledInputComponent: React.FC<StyledInputComponentProps> = ({
   );
 };
 
-const StyledInputWrapper = styled.View`
+const StyledInputWrapper = styled.View<ExtraStyledInputComponentProps>`
   flex-direction: row;
   background-color: ${props => props.theme.colors.white};
   border-radius: 10px;
@@ -50,7 +52,8 @@ const StyledInputWrapper = styled.View`
   justify-content: space-between;
   align-items: center;
   border-width: 1px;
-  border-color: ${props => props.theme.colors.border};
+  border-color: ${props =>
+    props.error ? props.theme.colors.error : props.theme.colors.border};
   padding: 0 20px;
   margin-top: 10px;
   margin-bottom: 10px;
