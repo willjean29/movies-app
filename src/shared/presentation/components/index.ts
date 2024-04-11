@@ -6,6 +6,7 @@ import TextInput from './TextInput/TextInput.tsx';
 import Icon from './Icon/Icon.tsx';
 import FlexContainer from './Container/FlexContainer.tsx';
 import SpacingContainer from './Container/SpacingContainer.tsx';
+import SocialButton from './Button/SocialButton.tsx';
 export {
   Text,
   Button,
@@ -15,4 +16,5 @@ export {
   Icon,
   FlexContainer,
   SpacingContainer,
+  SocialButton,
 };

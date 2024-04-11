@@ -1,11 +1,13 @@
-import {TextStyle, TouchableOpacityProps} from 'react-native';
+import {ImageProps, TextStyle, TouchableOpacityProps} from 'react-native';
 import styled from 'styled-components/native';
 import {Text} from '../';
 import {useTheme} from 'styled-components/native';
+import {IconProps} from 'react-native-vector-icons/Icon';
 import {TypeTheme} from '../../theme/ThemeProvider';
 interface ExtraStyledButtonComponentProps {
   children: React.ReactNode;
   mode?: 'text' | 'outlined' | 'contained';
+  icon?: React.ReactElement<IconProps | ImageProps>;
 }
 type StyledButtonComponentProps = TouchableOpacityProps &
   ExtraStyledButtonComponentProps;
@@ -13,6 +15,7 @@ type StyledButtonComponentProps = TouchableOpacityProps &
 const StyledButtonComponent: React.FC<StyledButtonComponentProps> = ({
   children,
   mode = 'text',
+  icon,
   ...props
 }) => {
   const {colors} = useTheme() as TypeTheme;
@@ -35,6 +38,7 @@ const StyledButtonComponent: React.FC<StyledButtonComponentProps> = ({
   };
   return (
     <StyledButton activeOpacity={0.6} mode={mode} {...props}>
+      {icon}
       <Text size="BodyLarge" style={[selectStylesText()]}>
         {children}
       </Text>
@@ -63,8 +67,10 @@ const StyledButton = styled.TouchableOpacity<StyledButtonProps>`
   height: 50px;
   padding: 10px;
   border-radius: 10px;
-  align-items: center;
   justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
 `;

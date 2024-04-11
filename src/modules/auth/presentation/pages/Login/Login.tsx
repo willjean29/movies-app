@@ -7,6 +7,7 @@ import {
   Text,
   FlexContainer,
   SpacingContainer,
+  SocialButton,
 } from '../../../../../shared/presentation/components';
 import {Image} from 'react-native';
 
@@ -31,8 +32,9 @@ const Login = () => {
             </SpacingContainer>
           </FlexContainer>
 
-          <Button mode="outlined">Login with Apple</Button>
-          <Button mode="outlined">Login with Google</Button>
+          <SocialButton social="apple" text=" Login with Apple" />
+          <SocialButton social="google" text="Login with Google" />
+
           <SpacingContainer marginVertical={20}>
             <FlexContainer
               mode="row"
