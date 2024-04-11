@@ -10,6 +10,7 @@ import {
   SocialButton,
 } from '../../../../../shared/presentation/components';
 import {Image} from 'react-native';
+import {IconAssets} from '../../../../../shared/presentation/utils/icons';
 
 const Login = () => {
   return (
@@ -18,9 +19,7 @@ const Login = () => {
         <FlexContainer flex={0.7}>
           <FlexContainer alignItems="center">
             <SpacingContainer marginVertical={20}>
-              <Image
-                source={require('../../../../../shared/presentation/assets/logo.png')}
-              />
+              <Image source={IconAssets.Logo} />
             </SpacingContainer>
             <Text size="TitleSmall" align="center" weight="bold">
               Welcome Back
@@ -63,12 +62,7 @@ const Login = () => {
           <SpacingContainer marginVertical={20}>
             <Text size="BodyMedium" align="center">
               Didn´t have an account?{' '}
-              <Text
-                size="BodyMedium"
-                mode="link"
-                onPress={() => {
-                  console.log('click ');
-                }}>
+              <Text size="BodyMedium" mode="link">
                 Register
               </Text>
             </Text>
