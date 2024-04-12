@@ -1,7 +1,7 @@
 import {Image} from 'react-native';
 import React from 'react';
-import {Button} from '../';
 import {IconAssets} from '@shared/presentation/utils/icons';
+import {Button} from '../';
 
 interface SocialButtonProps {
   social: 'google' | 'apple';

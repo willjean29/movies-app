@@ -26,7 +26,9 @@ const Login = () => {
     mode: 'all',
     resolver: yupResolver(loginFormYupSchema),
   });
+  console.log({errors, size: Object.entries(errors)});
   const handleLogin = (data: LoginFormFields) => {
+    console.log({data});
     // todo : implement login service
   };
   return (
@@ -72,7 +74,7 @@ const Login = () => {
                 placeholder="Email"
                 value={value}
                 onChangeText={onChange}
-                error={!!errors.email?.message}
+                error={errors.email?.message}
               />
             )}
           />
@@ -84,15 +86,17 @@ const Login = () => {
                 placeholder="Password"
                 value={value}
                 onChangeText={onChange}
-                error={!!errors.password?.message}
+                error={errors.password?.message}
                 iconRight="eye-off"
               />
             )}
           />
-
-          <Text size="BodyMedium" mode="link" align="right">
-            Forgot your password?
-          </Text>
+          <SpacingContainer
+            marginVertical={Object.entries(errors).length ? 20 : 0}>
+            <Text size="BodyMedium" mode="link" align="right">
+              Forgot your password?
+            </Text>
+          </SpacingContainer>
         </FlexContainer>
 
         <FlexContainer flex={0.3} justifyContent="center" alignItems="center">

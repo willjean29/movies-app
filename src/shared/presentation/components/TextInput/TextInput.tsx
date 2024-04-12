@@ -2,13 +2,13 @@ import React from 'react';
 import {TextInputProps} from 'react-native';
 import styled, {useTheme} from 'styled-components/native';
 import {TypeTheme} from '@shared/presentation/theme/ThemeProvider';
-import {Icon} from '../';
+import {Icon, Text, TextError} from '../';
 
 interface ExtraStyledInputComponentProps {
   iconRight?: string;
   iconLeft?: string;
   iconSize?: number;
-  error?: boolean;
+  error?: string;
   onPressIconRight?: () => void;
   onPressIconLeft?: () => void;
 }
@@ -27,20 +27,27 @@ const StyledInputComponent: React.FC<StyledInputComponentProps> = ({
 }) => {
   const {colors} = useTheme() as TypeTheme;
   return (
-    <StyledInputWrapper error={error}>
-      {iconLeft && (
-        <Icon name={iconLeft} size={iconSize || 20} onPress={onPressIconLeft} />
-      )}
+    <>
+      <StyledInputWrapper error={error}>
+        {iconLeft && (
+          <Icon
+            name={iconLeft}
+            size={iconSize || 20}
+            onPress={onPressIconLeft}
+          />
+        )}
 
-      <StyledInput placeholderTextColor={colors.primaryText} {...props} />
-      {iconRight && (
-        <Icon
-          name={iconRight}
-          size={iconSize || 20}
-          onPress={onPressIconRight}
-        />
-      )}
-    </StyledInputWrapper>
+        <StyledInput placeholderTextColor={colors.primaryText} {...props} />
+        {iconRight && (
+          <Icon
+            name={iconRight}
+            size={iconSize || 20}
+            onPress={onPressIconRight}
+          />
+        )}
+      </StyledInputWrapper>
+      {error && <TextError message={error} />}
+    </>
   );
 };
 
