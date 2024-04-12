@@ -1,9 +1,9 @@
 import {ImageProps, TextStyle, TouchableOpacityProps} from 'react-native';
 import styled from 'styled-components/native';
-import {Text} from '../';
 import {useTheme} from 'styled-components/native';
 import {IconProps} from 'react-native-vector-icons/Icon';
-import {TypeTheme} from '../../theme/ThemeProvider';
+import {TypeTheme} from '@shared/presentation/theme/ThemeProvider';
+import {Text} from '../';
 interface ExtraStyledButtonComponentProps {
   children: React.ReactNode;
   mode?: 'text' | 'outlined' | 'contained';

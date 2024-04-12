@@ -4,10 +4,10 @@ import {NavigationContainer} from '@react-navigation/native';
 import {
   ThemeProvider,
   useThemeState,
-} from './shared/presentation/theme/ThemeProvider';
-import AuthNavigation from './modules/auth/presentation/navigation/AuthNavigation';
-import darkTheme from './shared/presentation/theme/dark';
-import lightTheme from './shared/presentation/theme/light';
+} from '@shared/presentation/theme/ThemeProvider';
+import AuthNavigation from '@modules/auth/presentation/navigation/AuthNavigation';
+import darkTheme from '@shared/presentation/theme/dark';
+import lightTheme from '@shared/presentation/theme/light';
 
 const AppNavigation = () => {
   const {mode} = useThemeState();

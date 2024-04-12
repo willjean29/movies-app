@@ -1,7 +1,11 @@
 import React, {createContext, useContext, useEffect, useState} from 'react';
 import {Appearance, StatusBar} from 'react-native';
 import {ThemeProvider as StyledThemeProvider} from 'styled-components/native';
-import {Theme, ThemeProviderProps, ThemeState} from '../../domain/theme-state';
+import {
+  Theme,
+  ThemeProviderProps,
+  ThemeState,
+} from '@shared/domain/theme-state';
 import darkTheme from './dark';
 import lightTheme from './light';
 

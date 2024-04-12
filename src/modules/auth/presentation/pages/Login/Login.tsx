@@ -8,14 +8,14 @@ import {
   FlexContainer,
   SpacingContainer,
   SocialButton,
-} from '../../../../../shared/presentation/components';
+} from '@shared/presentation/components';
 import {Image} from 'react-native';
-import {IconAssets} from '../../../../../shared/presentation/utils/icons';
+import {IconAssets} from '@shared/presentation/utils/icons';
 import {useForm, Controller} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
-import {LoginFormFields} from '../../../domain/login-form';
+import {LoginFormFields} from '@modules/auth/domain/login-form';
+import {LoginFieldName} from '@modules/auth/domain/login-form.enum';
 import {loginFormYupSchema} from './login.schema';
-import {LoginFieldName} from '../../../domain/login-form.enum';
 
 const Login = () => {
   const {

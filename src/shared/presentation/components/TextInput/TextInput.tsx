@@ -1,8 +1,8 @@
 import React from 'react';
 import {TextInputProps} from 'react-native';
 import styled, {useTheme} from 'styled-components/native';
+import {TypeTheme} from '@shared/presentation/theme/ThemeProvider';
 import {Icon} from '../';
-import {TypeTheme} from '../../theme/ThemeProvider';
 
 interface ExtraStyledInputComponentProps {
   iconRight?: string;

@@ -1,5 +1,4 @@
 import {ViewProps} from 'react-native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import styled from 'styled-components/native';
 
 interface ExtraStyledFlexContainerComponentProps {
