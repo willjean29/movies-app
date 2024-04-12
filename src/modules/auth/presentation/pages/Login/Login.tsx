@@ -1,6 +1,4 @@
 import React from 'react';
-
-import {Image} from 'react-native';
 import {IconAssets} from '@shared/presentation/utils/icons';
 import {useForm, Controller} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
@@ -16,6 +14,7 @@ import {Text} from '@shared/presentation/components/Text';
 import {SocialButton, Button} from '@shared/presentation/components/Button';
 import {Divider} from '@shared/presentation/components/Divider';
 import {TextInput} from '@shared/presentation/components/TextInput';
+import {Image} from '@shared/presentation/components/Image';
 
 const Login = () => {
   const {
@@ -26,7 +25,7 @@ const Login = () => {
     mode: 'all',
     resolver: yupResolver(loginFormYupSchema),
   });
-  console.log({errors, size: Object.entries(errors)});
+
   const handleLogin = (data: LoginFormFields) => {
     console.log({data});
     // todo : implement login service
