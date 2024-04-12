@@ -53,7 +53,7 @@ const StyledButton = styled.TouchableOpacity<StyledButtonProps>`
       case 'text':
         return 'transparent';
       case 'outlined':
-        return props.theme.colors.white;
+        return props.theme.colors.background;
       case 'contained':
         return props.theme.colors.primary;
       default:

@@ -54,7 +54,7 @@ const StyledInputComponent: React.FC<StyledInputComponentProps> = ({
 
 const StyledInputWrapper = styled.View<ExtraStyledInputComponentProps>`
   flex-direction: row;
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${props => props.theme.colors.background};
   border-radius: 10px;
   height: 50px;
   justify-content: space-between;
@@ -71,6 +71,7 @@ const StyledInput = styled.TextInput`
   font-size: 16px;
   flex: 1;
   height: 100%;
+  color: ${props => props.theme.colors.primaryText};
 `;
 
 export default StyledInputComponent;
