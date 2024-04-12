@@ -11,8 +11,24 @@ import {
 } from '../../../../../shared/presentation/components';
 import {Image} from 'react-native';
 import {IconAssets} from '../../../../../shared/presentation/utils/icons';
+import {useForm, Controller} from 'react-hook-form';
+import {yupResolver} from '@hookform/resolvers/yup';
+import {LoginFormFields} from '../../../domain/login-form';
+import {loginFormYupSchema} from './login.schema';
+import {LoginFieldName} from '../../../domain/login-form.enum';
 
 const Login = () => {
+  const {
+    control,
+    handleSubmit,
+    formState: {errors, isValid},
+  } = useForm<LoginFormFields>({
+    mode: 'all',
+    resolver: yupResolver(loginFormYupSchema),
+  });
+  const handleLogin = (data: LoginFormFields) => {
+    // todo : implement login service
+  };
   return (
     <Container isViewKeyboardAware>
       <SpacingContainer flex={1} paddingHorizontal={20}>
@@ -48,9 +64,31 @@ const Login = () => {
               <Divider flexible />
             </FlexContainer>
           </SpacingContainer>
-
-          <TextInput placeholder="Email" />
-          <TextInput placeholder="Password" iconRight="eye-off-outline" />
+          <Controller
+            control={control}
+            name={LoginFieldName.Email}
+            render={({field: {onChange, value}}) => (
+              <TextInput
+                placeholder="Email"
+                value={value}
+                onChangeText={onChange}
+                error={!!errors.email?.message}
+              />
+            )}
+          />
+          <Controller
+            control={control}
+            name={LoginFieldName.Password}
+            render={({field: {onChange, value}}) => (
+              <TextInput
+                placeholder="Password"
+                value={value}
+                onChangeText={onChange}
+                error={!!errors.password?.message}
+                iconRight="eye-off"
+              />
+            )}
+          />
 
           <Text size="BodyMedium" mode="link" align="right">
             Forgot your password?
@@ -58,7 +96,9 @@ const Login = () => {
         </FlexContainer>
 
         <FlexContainer flex={0.3} justifyContent="center" alignItems="center">
-          <Button mode="contained">Login</Button>
+          <Button mode="contained" onPress={handleSubmit(handleLogin)}>
+            Login
+          </Button>
           <SpacingContainer marginVertical={20}>
             <Text size="BodyMedium" align="center">
               Didn´t have an account?{' '}
