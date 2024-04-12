@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-  Button,
-  Container,
-  Divider,
-  TextInput,
-  Text,
-  FlexContainer,
-  SpacingContainer,
-  SocialButton,
-} from '@shared/presentation/components';
+
 import {Image} from 'react-native';
 import {IconAssets} from '@shared/presentation/utils/icons';
 import {useForm, Controller} from 'react-hook-form';
@@ -16,6 +7,15 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import {LoginFormFields} from '@modules/auth/domain/login-form';
 import {LoginFieldName} from '@modules/auth/domain/login-form.enum';
 import {loginFormYupSchema} from './login.schema';
+import {
+  Container,
+  FlexContainer,
+  SpacingContainer,
+} from '@shared/presentation/components/Container';
+import {Text} from '@shared/presentation/components/Text';
+import {SocialButton, Button} from '@shared/presentation/components/Button';
+import {Divider} from '@shared/presentation/components/Divider';
+import {TextInput} from '@shared/presentation/components/TextInput';
 
 const Login = () => {
   const {

@@ -1,6 +1,6 @@
 import {TextProps} from 'react-native';
 import styled from 'styled-components/native';
-import {FontSize, FontSizeType} from './font-sizes';
+import {FontSize, FontSizeType} from '@shared/presentation/utils/font-sizes';
 interface ExtraStyledTextComponentProps {
   children: React.ReactNode;
   size?: FontSizeType;

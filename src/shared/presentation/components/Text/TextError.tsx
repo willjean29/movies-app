@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import {SpacingContainer} from '../Container';
 import Text from './Text';
-import {SpacingContainer} from '../';
+
 interface TextErrorProps {
   message: string;
 }
