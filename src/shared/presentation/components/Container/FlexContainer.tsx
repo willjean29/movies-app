@@ -9,6 +9,8 @@ interface ExtraStyledFlexContainerComponentProps {
   alignSelf?: 'center' | 'flex-start' | 'flex-end';
   flex?: number;
   gap?: number;
+  width?: number;
+  height?: number;
 }
 type StyledFlexContainerComponentProps = ViewProps &
   ExtraStyledFlexContainerComponentProps;
@@ -22,6 +24,9 @@ const StyledFlexContainerComponent: React.FC<
   alignItems,
   alignSelf,
   gap,
+  flex,
+  width,
+  height,
   ...props
 }) => {
   return (
@@ -30,7 +35,9 @@ const StyledFlexContainerComponent: React.FC<
       alignItems={alignItems}
       alignSelf={alignSelf}
       mode={mode}
-      flex={props.flex}
+      width={width}
+      height={height}
+      flex={flex}
       gap={gap}
       {...props}>
       {children}
@@ -39,7 +46,8 @@ const StyledFlexContainerComponent: React.FC<
 };
 
 const StyledFlexContainer = styled.View<ExtraStyledFlexContainerComponentProps>`
-  width: 100%;
+  width: ${props => (props.width ? `${props.width}px` : '100%')};
+  height: ${props => (props.height ? `${props.height}px` : 'auto')};
   ${props => props.mode && `flex-direction: ${props.mode};`}
   ${props =>
     props.justifyContent && `justify-content: ${props.justifyContent};`}

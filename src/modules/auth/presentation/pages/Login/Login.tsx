@@ -17,6 +17,7 @@ import {TextInput} from '@shared/presentation/components/TextInput';
 import {Image} from '@shared/presentation/components/Image';
 import {AuthRoutesName} from '@modules/auth/domain/routes-names';
 import {loginFormYupSchema} from './login.schema';
+import {DeviceDimensions} from '../../../../../shared/presentation/utils/device';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -36,7 +37,7 @@ const Login = () => {
   return (
     <Container isViewKeyboardAware>
       <SpacingContainer flex={1} paddingHorizontal={20}>
-        <FlexContainer flex={0.7}>
+        <FlexContainer height={DeviceDimensions.Height * 0.7}>
           <FlexContainer alignItems="center">
             <SpacingContainer marginVertical={20}>
               <Image source={IconAssets.Logo} />
@@ -99,12 +100,17 @@ const Login = () => {
               Forgot your password?
             </Text>
           </SpacingContainer>
+          <SpacingContainer marginVertical={20}>
+            <Button mode="contained" onPress={handleSubmit(handleLogin)}>
+              Login
+            </Button>
+          </SpacingContainer>
         </FlexContainer>
 
-        <FlexContainer flex={0.3} justifyContent="center" alignItems="center">
-          <Button mode="contained" onPress={handleSubmit(handleLogin)}>
-            Login
-          </Button>
+        <FlexContainer
+          justifyContent="center"
+          alignItems="center"
+          height={DeviceDimensions.Height * 0.3}>
           <SpacingContainer marginVertical={20}>
             <Text size="BodyMedium" align="center">
               Didn´t have an account?{' '}
