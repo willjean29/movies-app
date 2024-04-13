@@ -1,10 +1,10 @@
 import React from 'react';
 import {IconAssets} from '@shared/presentation/utils/icons';
 import {useForm, Controller} from 'react-hook-form';
+import {useNavigation} from '@react-navigation/native';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {LoginFormFields} from '@modules/auth/domain/login-form';
-import {LoginFieldName} from '@modules/auth/domain/login-form.enum';
-import {loginFormYupSchema} from './login.schema';
+import {LoginFieldName} from '@modules/auth/domain/login-form-fields';
 import {
   Container,
   FlexContainer,
@@ -15,8 +15,11 @@ import {SocialButton, Button} from '@shared/presentation/components/Button';
 import {Divider} from '@shared/presentation/components/Divider';
 import {TextInput} from '@shared/presentation/components/TextInput';
 import {Image} from '@shared/presentation/components/Image';
+import {AuthRoutesName} from '@modules/auth/domain/routes-names';
+import {loginFormYupSchema} from './login.schema';
 
 const Login = () => {
+  const navigation = useNavigation();
   const {
     control,
     handleSubmit,
@@ -105,7 +108,12 @@ const Login = () => {
           <SpacingContainer marginVertical={20}>
             <Text size="BodyMedium" align="center">
               Didn´t have an account?{' '}
-              <Text size="BodyMedium" mode="link">
+              <Text
+                size="BodyMedium"
+                mode="link"
+                onPress={() => {
+                  navigation.navigate(AuthRoutesName.Register);
+                }}>
                 Register
               </Text>
             </Text>

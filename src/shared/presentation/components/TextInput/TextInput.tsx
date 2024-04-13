@@ -35,6 +35,7 @@ const StyledInputComponent: React.FC<StyledInputComponentProps> = ({
             name={iconLeft}
             size={iconSize || 20}
             onPress={onPressIconLeft}
+            color={colors.primaryText}
           />
         )}
 
@@ -44,6 +45,7 @@ const StyledInputComponent: React.FC<StyledInputComponentProps> = ({
             name={iconRight}
             size={iconSize || 20}
             onPress={onPressIconRight}
+            color={colors.primaryText}
           />
         )}
       </StyledInputWrapper>

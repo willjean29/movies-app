@@ -1,18 +1,21 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import Login from '../pages/Login/Login';
-import Register from '../pages/Register/Register';
-import Enrollment from '../pages/Enrollment/Enrollment';
-const Stack = createStackNavigator();
+import Login from '@modules/auth/presentation/pages/Login/Login';
+import Register from '@modules/auth/presentation/pages/Register/Register';
+import Enrollment from '@modules/auth/presentation/pages/Enrollment/Enrollment';
+import {AuthRoutesName} from '@modules/auth/domain/routes-names';
+import {AuthStackParamList} from '@modules/auth/domain/navigation';
+
+const Stack = createStackNavigator<AuthStackParamList>();
 const AuthNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="Register" component={Register} />
-      <Stack.Screen name="Enrollment" component={Enrollment} />
+      <Stack.Screen name={AuthRoutesName.Login} component={Login} />
+      <Stack.Screen name={AuthRoutesName.Register} component={Register} />
+      <Stack.Screen name={AuthRoutesName.Enrollment} component={Enrollment} />
     </Stack.Navigator>
   );
 };

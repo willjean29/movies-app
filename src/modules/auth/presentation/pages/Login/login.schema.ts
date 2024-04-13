@@ -1,7 +1,7 @@
 import {object as yupObject, string as yupString} from 'yup';
-import {LoginFieldName} from '../../../domain/login-form.enum';
-import {Regex} from '../../../../../shared/presentation/utils/regex';
-import {ErrorMessage} from '../../../../../shared/presentation/utils/errro-messages';
+import {LoginFieldName} from '@modules/auth/domain/login-form-fields';
+import {Regex} from '@shared/presentation/utils/regex';
+import {ErrorMessage} from '@shared/presentation/utils/errro-messages';
 
 export const loginFormYupSchema = yupObject().shape({
   [LoginFieldName.Email]: yupString()

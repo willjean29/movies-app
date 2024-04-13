@@ -1,4 +1,4 @@
-import {LoginFieldName} from './login-form.enum';
+import {LoginFieldName} from './login-form-fields';
 
 export interface LoginFormFields {
   [LoginFieldName.Email]: string;
