@@ -1,7 +1,6 @@
-import React, {useCallback} from 'react';
 import {IconAssets} from '@shared/presentation/utils/icons';
 import {useForm, Controller} from 'react-hook-form';
-import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {LoginFormFields} from '@modules/auth/domain/login-form';
 import {LoginFieldName} from '@modules/auth/domain/login-form-fields';
@@ -15,9 +14,9 @@ import {SocialButton, Button} from '@shared/presentation/components/Button';
 import {Divider} from '@shared/presentation/components/Divider';
 import {TextInput} from '@shared/presentation/components/TextInput';
 import {Image} from '@shared/presentation/components/Image';
+import {DeviceDimensions} from '@shared/presentation/utils/device';
 import {AuthRoutesName} from '@modules/auth/domain/routes-names';
 import {loginFormYupSchema} from './login.schema';
-import {DeviceDimensions} from '../../../../../shared/presentation/utils/device';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -36,11 +35,10 @@ const Login = () => {
     defaultValues: defaultValues,
   });
 
-  useFocusEffect(
-    useCallback(() => {
-      reset();
-    }, [reset]),
-  );
+  const navigateToRegister = () => {
+    reset();
+    navigation.navigate(AuthRoutesName.Register);
+  };
 
   const handleLogin = (data: LoginFormFields) => {
     console.log({data});
@@ -49,7 +47,7 @@ const Login = () => {
   return (
     <Container isViewKeyboardAware>
       <SpacingContainer flex={1} paddingHorizontal={20}>
-        <FlexContainer height={DeviceDimensions.Height * 0.7}>
+        <FlexContainer height={DeviceDimensions.Height * 0.8}>
           <FlexContainer alignItems="center">
             <SpacingContainer marginVertical={20}>
               <Image source={IconAssets.Logo} />
@@ -89,7 +87,7 @@ const Login = () => {
                 placeholder="Email"
                 value={value}
                 onChangeText={onChange}
-                error={errors.email?.message}
+                error={errors[LoginFieldName.Email]?.message}
               />
             )}
           />
@@ -101,13 +99,13 @@ const Login = () => {
                 placeholder="Password"
                 value={value}
                 onChangeText={onChange}
-                error={errors.password?.message}
+                error={errors[LoginFieldName.Password]?.message}
                 iconRight="eye-off"
               />
             )}
           />
           <SpacingContainer
-            marginVertical={Object.entries(errors).length ? 20 : 0}>
+            marginVertical={Object.entries(errors).length ? 10 : 0}>
             <Text size="BodyMedium" mode="link" align="right">
               Forgot your password?
             </Text>
@@ -119,19 +117,11 @@ const Login = () => {
           </SpacingContainer>
         </FlexContainer>
 
-        <FlexContainer
-          justifyContent="center"
-          alignItems="center"
-          height={DeviceDimensions.Height * 0.3}>
+        <FlexContainer height={DeviceDimensions.Height * 0.2}>
           <SpacingContainer marginVertical={20}>
             <Text size="BodyMedium" align="center">
               Didn´t have an account?{' '}
-              <Text
-                size="BodyMedium"
-                mode="link"
-                onPress={() => {
-                  navigation.navigate(AuthRoutesName.Register);
-                }}>
+              <Text size="BodyMedium" mode="link" onPress={navigateToRegister}>
                 Register
               </Text>
             </Text>

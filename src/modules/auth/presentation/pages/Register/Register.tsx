@@ -12,13 +12,38 @@ import {TextInput} from '@shared/presentation/components/TextInput';
 import {Image} from '@shared/presentation/components/Image';
 import {AuthRoutesName} from '@modules/auth/domain/routes-names';
 import {DeviceDimensions} from '@shared/presentation/utils/device';
+import {Controller, useForm} from 'react-hook-form';
+import {yupResolver} from '@hookform/resolvers/yup';
+import {RegisterFormFields} from '@modules/auth/domain/register-form';
+import {RegisterFieldName} from '@modules/auth/domain/register-form-fields';
+import {registerYuupSchema} from './register.schema';
 
 const Register = () => {
   const navigation = useNavigation();
+  const defaultValues: RegisterFormFields = {
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  };
+  const {
+    control,
+    handleSubmit,
+    formState: {errors, isValid},
+  } = useForm<RegisterFormFields>({
+    mode: 'all',
+    resolver: yupResolver(registerYuupSchema),
+    defaultValues,
+  });
+
+  const handleRegister = (data: RegisterFormFields) => {
+    console.log({data});
+    // todo : implement register service
+  };
   return (
     <Container isViewKeyboardAware>
       <SpacingContainer flex={1} paddingHorizontal={20}>
-        <FlexContainer height={DeviceDimensions.Height * 0.7}>
+        <FlexContainer height={DeviceDimensions.Height * 0.8}>
           <FlexContainer alignItems="center">
             <SpacingContainer marginVertical={20}>
               <Image source={IconAssets.Logo} />
@@ -33,18 +58,64 @@ const Register = () => {
               </Text>
             </SpacingContainer>
           </FlexContainer>
-
-          <TextInput placeholder="Username" />
-          <TextInput placeholder="Email" />
-          <TextInput placeholder="Password" />
-          <TextInput placeholder="Confirmed Password" />
-          <Button mode="contained">Signup</Button>
+          <Controller
+            control={control}
+            name={RegisterFieldName.Username}
+            render={({field: {onChange, value}}) => (
+              <TextInput
+                placeholder="Username"
+                onChangeText={onChange}
+                value={value}
+                error={errors[RegisterFieldName.Username]?.message}
+              />
+            )}
+          />
+          <Controller
+            control={control}
+            name={RegisterFieldName.Email}
+            render={({field: {onChange, value}}) => (
+              <TextInput
+                placeholder="Email"
+                onChangeText={onChange}
+                value={value}
+                error={errors[RegisterFieldName.Email]?.message}
+              />
+            )}
+          />
+          <Controller
+            control={control}
+            name={RegisterFieldName.Password}
+            render={({field: {onChange, value}}) => (
+              <TextInput
+                placeholder="Password"
+                onChangeText={onChange}
+                value={value}
+                iconRight="eye-off"
+                error={errors[RegisterFieldName.Password]?.message}
+              />
+            )}
+          />
+          <Controller
+            control={control}
+            name={RegisterFieldName.ConfirmPassword}
+            render={({field: {onChange, value}}) => (
+              <TextInput
+                placeholder="Confirm Password"
+                onChangeText={onChange}
+                value={value}
+                iconRight="eye-off"
+                error={errors[RegisterFieldName.ConfirmPassword]?.message}
+              />
+            )}
+          />
+          <SpacingContainer marginVertical={10}>
+            <Button mode="contained" onPress={handleSubmit(handleRegister)}>
+              Signup
+            </Button>
+          </SpacingContainer>
         </FlexContainer>
 
-        <FlexContainer
-          justifyContent="center"
-          alignItems="center"
-          height={DeviceDimensions.Height * 0.3}>
+        <FlexContainer height={DeviceDimensions.Height * 0.2}>
           <SpacingContainer marginVertical={20}>
             <Text size="BodyMedium" align="center">
               Already have an account?{' '}
