@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {IconAssets} from '@shared/presentation/utils/icons';
 import {useForm, Controller} from 'react-hook-form';
-import {useNavigation} from '@react-navigation/native';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {LoginFormFields} from '@modules/auth/domain/login-form';
 import {LoginFieldName} from '@modules/auth/domain/login-form-fields';
@@ -21,14 +21,26 @@ import {DeviceDimensions} from '../../../../../shared/presentation/utils/device'
 
 const Login = () => {
   const navigation = useNavigation();
+  const defaultValues: LoginFormFields = {
+    email: '',
+    password: '',
+  };
   const {
     control,
     handleSubmit,
     formState: {errors, isValid},
+    reset,
   } = useForm<LoginFormFields>({
     mode: 'all',
     resolver: yupResolver(loginFormYupSchema),
+    defaultValues: defaultValues,
   });
+
+  useFocusEffect(
+    useCallback(() => {
+      reset();
+    }, [reset]),
+  );
 
   const handleLogin = (data: LoginFormFields) => {
     console.log({data});
