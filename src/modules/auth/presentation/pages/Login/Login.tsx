@@ -119,12 +119,18 @@ const Login = () => {
 
         <FlexContainer height={DeviceDimensions.Height * 0.2}>
           <SpacingContainer marginVertical={20}>
-            <Text size="BodyMedium" align="center">
-              Didn´t have an account?{' '}
+            <FlexContainer
+              mode="row"
+              justifyContent="center"
+              alignItems="center"
+              gap={5}>
+              <Text size="BodyMedium" align="center">
+                Didn´t have an account?
+              </Text>
               <Text size="BodyMedium" mode="link" onPress={navigateToRegister}>
                 Register
               </Text>
-            </Text>
+            </FlexContainer>
           </SpacingContainer>
         </FlexContainer>
       </SpacingContainer>

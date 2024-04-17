@@ -117,8 +117,12 @@ const Register = () => {
 
         <FlexContainer height={DeviceDimensions.Height * 0.2}>
           <SpacingContainer marginVertical={20}>
-            <Text size="BodyMedium" align="center">
-              Already have an account?{' '}
+            <FlexContainer
+              mode="row"
+              justifyContent="center"
+              alignItems="center"
+              gap={5}>
+              <Text size="BodyMedium">Already have an account? </Text>
               <Text
                 size="BodyMedium"
                 mode="link"
@@ -127,7 +131,7 @@ const Register = () => {
                 }}>
                 Log in
               </Text>
-            </Text>
+            </FlexContainer>
           </SpacingContainer>
         </FlexContainer>
       </SpacingContainer>

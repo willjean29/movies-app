@@ -1,4 +1,4 @@
-import {TextProps} from 'react-native';
+import {TextProps, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
 import {FontSize, FontSizeType} from '@shared/presentation/utils/font-sizes';
 interface ExtraStyledTextComponentProps {
@@ -17,17 +17,22 @@ const StyledTextComponent: React.FC<StyledTextComponentProps> = ({
   align = 'left',
   mode = 'primary',
   weight = 'normal',
+  onPress,
   ...props
 }) => {
   return (
-    <StyledText
-      weight={weight}
-      mode={mode}
-      size={size}
-      align={align}
-      {...props}>
-      {children}
-    </StyledText>
+    <TouchableOpacity
+      activeOpacity={1}
+      onPress={mode === 'link' ? onPress : undefined}>
+      <StyledText
+        weight={weight}
+        mode={mode}
+        size={size}
+        align={align}
+        {...props}>
+        {children}
+      </StyledText>
+    </TouchableOpacity>
   );
 };
 
