@@ -17,9 +17,11 @@ import {Image} from '@shared/presentation/components/Image';
 import {DeviceDimensions} from '@shared/presentation/utils/device';
 import {AuthRoutesName} from '@modules/auth/domain/routes-names';
 import {loginFormYupSchema} from './login.schema';
+import {useState} from 'react';
 
 const Login = () => {
   const navigation = useNavigation();
+  const [hiddenPassword, setHiddenPassword] = useState(true);
   const defaultValues: LoginFormFields = {
     email: '',
     password: '',
@@ -85,6 +87,7 @@ const Login = () => {
             render={({field: {onChange, value}}) => (
               <TextInput
                 placeholder="Email"
+                textContentType="emailAddress"
                 value={value}
                 onChangeText={onChange}
                 error={errors[LoginFieldName.Email]?.message}
@@ -97,10 +100,13 @@ const Login = () => {
             render={({field: {onChange, value}}) => (
               <TextInput
                 placeholder="Password"
+                textContentType="password"
+                secureTextEntry={hiddenPassword}
                 value={value}
                 onChangeText={onChange}
                 error={errors[LoginFieldName.Password]?.message}
                 iconRight="eye-off"
+                onPressIconRight={() => setHiddenPassword(!hiddenPassword)}
               />
             )}
           />
