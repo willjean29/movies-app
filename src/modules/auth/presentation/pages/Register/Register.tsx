@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {IconAssets} from '@shared/presentation/utils/icons';
 import {useNavigation} from '@react-navigation/native';
 import {
@@ -20,6 +20,8 @@ import {registerYuupSchema} from './register.schema';
 
 const Register = () => {
   const navigation = useNavigation();
+  const [hiddenPassword, setHiddenPassword] = useState(true);
+
   const defaultValues: RegisterFormFields = {
     username: '',
     email: '',
@@ -64,6 +66,7 @@ const Register = () => {
             render={({field: {onChange, value}}) => (
               <TextInput
                 placeholder="Username"
+                textContentType="username"
                 onChangeText={onChange}
                 value={value}
                 error={errors[RegisterFieldName.Username]?.message}
@@ -76,6 +79,7 @@ const Register = () => {
             render={({field: {onChange, value}}) => (
               <TextInput
                 placeholder="Email"
+                textContentType="emailAddress"
                 onChangeText={onChange}
                 value={value}
                 error={errors[RegisterFieldName.Email]?.message}
@@ -88,9 +92,12 @@ const Register = () => {
             render={({field: {onChange, value}}) => (
               <TextInput
                 placeholder="Password"
+                textContentType="password"
+                secureTextEntry={hiddenPassword}
                 onChangeText={onChange}
                 value={value}
-                iconRight="eye-off"
+                iconRight={hiddenPassword ? 'eye-off' : 'eye'}
+                onPressIconRight={() => setHiddenPassword(!hiddenPassword)}
                 error={errors[RegisterFieldName.Password]?.message}
               />
             )}
@@ -101,9 +108,12 @@ const Register = () => {
             render={({field: {onChange, value}}) => (
               <TextInput
                 placeholder="Confirm Password"
+                textContentType="password"
+                secureTextEntry={hiddenPassword}
                 onChangeText={onChange}
                 value={value}
-                iconRight="eye-off"
+                iconRight={hiddenPassword ? 'eye-off' : 'eye'}
+                onPressIconRight={() => setHiddenPassword(!hiddenPassword)}
                 error={errors[RegisterFieldName.ConfirmPassword]?.message}
               />
             )}

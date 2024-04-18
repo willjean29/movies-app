@@ -105,7 +105,7 @@ const Login = () => {
                 value={value}
                 onChangeText={onChange}
                 error={errors[LoginFieldName.Password]?.message}
-                iconRight="eye-off"
+                iconRight={hiddenPassword ? 'eye-off' : 'eye'}
                 onPressIconRight={() => setHiddenPassword(!hiddenPassword)}
               />
             )}
