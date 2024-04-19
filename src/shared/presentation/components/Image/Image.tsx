@@ -1,4 +1,4 @@
-import {ImageSourcePropType} from 'react-native';
+import {ImageSourcePropType, ImageProps} from 'react-native';
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import {useTheme} from 'styled-components';
@@ -9,10 +9,11 @@ interface StyledImageComponetProps {
   width?: number;
   height?: number;
 }
-const StyledImageComponet: React.FC<StyledImageComponetProps> = ({
+const StyledImageComponet: React.FC<StyledImageComponetProps & ImageProps> = ({
   source,
   width = 100,
   height = 100,
+  ...props
 }) => {
   const {colors} = useTheme() as TypeTheme;
   const [isLoading, setIsLoading] = useState(true);
@@ -24,6 +25,7 @@ const StyledImageComponet: React.FC<StyledImageComponetProps> = ({
           opacity: isLoading ? 0 : 1,
           resizeMode: 'contain',
         }}
+        {...props}
         source={source}
         onLoadEnd={() => setIsLoading(false)}
       />

@@ -10,6 +10,7 @@ const Stack = createStackNavigator<AuthStackParamList>();
 const AuthNavigation = () => {
   return (
     <Stack.Navigator
+      initialRouteName={AuthRoutesName.Enrollment}
       screenOptions={{
         headerShown: false,
       }}>
