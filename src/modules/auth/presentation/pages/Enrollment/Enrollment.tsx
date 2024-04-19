@@ -1,43 +1,22 @@
-import {
-  Container,
-  FlexContainer,
-  SpacingContainer,
-} from '@shared/presentation/components/Container';
-import {Icon} from '@shared/presentation/components/Icon';
-import {Image} from '@shared/presentation/components/Image';
-import {Text} from '@shared/presentation/components/Text';
-import {DeviceDimensions} from '@shared/presentation/utils/device';
-import {IconAssets} from '@shared/presentation/utils/icons';
 import React, {useRef, useState} from 'react';
-import {
-  FlatList,
-  NativeScrollEvent,
-  NativeSyntheticEvent,
-  View,
-} from 'react-native';
+import {FlatList, NativeScrollEvent, NativeSyntheticEvent} from 'react-native';
+import {StackScreenProps} from '@react-navigation/stack';
+import {slides} from '@modules/auth/domain/slide.data';
+import {Container} from '@shared/presentation/components/Container';
+import {DeviceDimensions} from '@shared/presentation/utils/device';
+import {ItemSlide} from '@modules/auth/domain/slide.data';
+import {Slide} from '@modules/auth/presentation/components/Slide';
+import {AuthRoutesName} from '@modules/auth/domain/routes-names';
+import {AuthStackParamList} from '@modules/auth/domain/navigation';
 
-const slides = [
-  {
-    id: '1',
-    title: 'Find the lasted and greatest movie here',
-    subtitle:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.',
-  },
-  {
-    id: '2',
-    title: 'Achieve Your Goals',
-    subtitle:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.',
-  },
-  {
-    id: '3',
-    title: 'Increase Your Value',
-    subtitle:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.',
-  },
-];
+type EnrollmentScreenNavigationProps = StackScreenProps<
+  AuthStackParamList,
+  AuthRoutesName.Enrollment
+>;
 
-const Enrollment = () => {
+const Enrollment: React.FC<EnrollmentScreenNavigationProps> = ({
+  navigation,
+}) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const ref = useRef<FlatList>(null);
 
@@ -53,45 +32,14 @@ const Enrollment = () => {
     if (currentSlideIndex < slides.length - 1) {
       setCurrentSlideIndex(currentSlideIndex + 1);
       ref.current?.scrollToIndex({index: currentSlideIndex + 1});
+    } else {
+      navigation.replace(AuthRoutesName.Login);
     }
   };
 
-  const Slide = ({item}: {item: any}) => (
-    <FlexContainer width={DeviceDimensions.Width}>
-      <FlexContainer height={DeviceDimensions.Height * 0.2}>
-        <SpacingContainer paddingHorizontal={20}>
-          <Text size="HeadlineSmall" weight="bold">
-            {item.title}
-          </Text>
-          <SpacingContainer marginVertical={10}>
-            <Text size="BodyMedium">{item.subtitle}</Text>
-          </SpacingContainer>
-          <Icon
-            name="arrow-right-bold"
-            mode="button"
-            size={20}
-            onPress={goToNextSlide}
-          />
-        </SpacingContainer>
-      </FlexContainer>
-
-      <FlexContainer
-        height={DeviceDimensions.Height * 0.8}
-        mode="row"
-        justifyContent="center"
-        alignItems="flex-end">
-        <Image
-          width={DeviceDimensions.Width}
-          height={DeviceDimensions.Height * 0.75}
-          source={IconAssets.Step1}
-        />
-      </FlexContainer>
-    </FlexContainer>
-  );
-
   return (
     <Container>
-      <FlatList
+      <FlatList<ItemSlide>
         data={slides}
         horizontal
         ref={ref}
@@ -102,7 +50,14 @@ const Enrollment = () => {
         contentContainerStyle={{
           width: DeviceDimensions.Width * slides.length,
         }}
-        renderItem={({item}) => <Slide item={item} key={item.id} />}
+        renderItem={({item}) => (
+          <Slide
+            item={item}
+            key={item.id}
+            currentSlideIndex={currentSlideIndex}
+            goToNextSlide={goToNextSlide}
+          />
+        )}
       />
     </Container>
   );
