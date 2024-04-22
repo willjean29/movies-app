@@ -7,6 +7,7 @@ interface ExtraStyledFlexContainerComponentProps {
   justifyContent?: 'center' | 'flex-start' | 'flex-end' | 'space-between';
   alignItems?: 'center' | 'flex-start' | 'flex-end';
   alignSelf?: 'center' | 'flex-start' | 'flex-end';
+  wrap?: 'wrap' | 'nowrap' | 'wrap-reverse';
   flex?: number;
   gap?: number;
   width?: number;
@@ -27,6 +28,7 @@ const StyledFlexContainerComponent: React.FC<
   flex,
   width,
   height,
+  wrap,
   ...props
 }) => {
   return (
@@ -39,6 +41,7 @@ const StyledFlexContainerComponent: React.FC<
       height={height}
       flex={flex}
       gap={gap}
+      wrap={wrap}
       {...props}>
       {children}
     </StyledFlexContainer>
@@ -55,6 +58,7 @@ const StyledFlexContainer = styled.View<ExtraStyledFlexContainerComponentProps>`
   ${props => props.alignSelf && `align-self: ${props.alignSelf};`}
   ${props => props.flex && `flex: ${props.flex};`}
   ${props => props.gap && `gap: ${props.gap}px;`}
+  ${props => props.wrap && `flex-wrap: ${props.wrap};`}
 `;
 
 export default StyledFlexContainerComponent;

@@ -7,9 +7,9 @@ import {DeviceDimensions} from '@shared/presentation/utils/device';
 import {Text} from '@shared/presentation/components/Text';
 import {Icon} from '@shared/presentation/components/Icon';
 import {Image} from '@shared/presentation/components/Image';
-import {IconAssets} from '@shared/presentation/utils/icons';
 import {ItemSlide} from '@modules/auth/domain/slide.data';
-import {Indicator} from '../Indicator';
+import Indicator from './Indicator';
+import Title from './Title';
 
 interface SlideProps {
   item: ItemSlide;
@@ -23,11 +23,9 @@ const Slide: React.FC<SlideProps> = ({
 }) => {
   return (
     <FlexContainer width={DeviceDimensions.Width}>
-      <FlexContainer height={DeviceDimensions.Height * 0.2}>
+      <FlexContainer height={DeviceDimensions.Height * 0.25}>
         <SpacingContainer paddingHorizontal={20}>
-          <Text size="HeadlineSmall" weight="bold">
-            {item.title}
-          </Text>
+          <Title title={item.title} />
           <SpacingContainer marginVertical={10}>
             <Text size="BodyMedium">{item.subtitle}</Text>
           </SpacingContainer>
@@ -42,14 +40,14 @@ const Slide: React.FC<SlideProps> = ({
       </FlexContainer>
 
       <FlexContainer
-        height={DeviceDimensions.Height * 0.8}
+        height={DeviceDimensions.Height * 0.75}
         mode="row"
         justifyContent="center"
         alignItems="flex-end">
         <Image
           width={DeviceDimensions.Width}
-          height={DeviceDimensions.Height * 0.75}
-          source={IconAssets.Step1}
+          height={DeviceDimensions.Height * 0.7}
+          source={item.image}
         />
       </FlexContainer>
     </FlexContainer>

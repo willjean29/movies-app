@@ -1,5 +1,4 @@
-import React, {useRef} from 'react';
-import {Animated} from 'react-native';
+import React from 'react';
 import styled from 'styled-components/native';
 import {slides} from '@modules/auth/domain/slide.data';
 
@@ -7,31 +6,11 @@ interface IndicatorProps {
   currentSlideIndex: number;
 }
 const Indicator: React.FC<IndicatorProps> = ({currentSlideIndex}) => {
-  const scaleValue = useRef(new Animated.Value(1)).current;
-  const scaleValueInterpolate = scaleValue.interpolate({
-    inputRange: [0, 1],
-    outputRange: [1, 1.5],
-  });
-
   return (
     <StyledIndicatorContainer>
       {slides.map((_, index) => {
         const isCurrentSlide = index === currentSlideIndex;
-        return (
-          <StyledIndicator
-            key={index}
-            isCurrentSlide={isCurrentSlide}
-            style={[
-              {
-                transform: [
-                  {
-                    scale: isCurrentSlide ? scaleValueInterpolate : 1,
-                  },
-                ],
-              },
-            ]}
-          />
-        );
+        return <StyledIndicator key={index} isCurrentSlide={isCurrentSlide} />;
       })}
     </StyledIndicatorContainer>
   );
@@ -42,7 +21,7 @@ const StyledIndicatorContainer = styled.View`
   align-items: center;
   margin: 20px 0;
 `;
-const StyledIndicator = styled(Animated.View)<{isCurrentSlide: boolean}>`
+const StyledIndicator = styled.View<{isCurrentSlide: boolean}>`
   width: ${({isCurrentSlide}) => (isCurrentSlide ? 20 : 5)}px;
   height: 5px;
   border-radius: 5px;

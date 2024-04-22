@@ -1,25 +1,32 @@
+import {IconAssets} from '@shared/presentation/utils/icons';
+import {ImageSourcePropType} from 'react-native';
+
 export interface ItemSlide {
   id: string;
   title: string;
   subtitle: string;
+  image: ImageSourcePropType;
 }
 export const slides: ItemSlide[] = [
   {
     id: '1',
-    title: 'Find the lasted and greatest movie here',
+    title: 'Find the latest and greatest movies here',
     subtitle:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.',
+      'Browse through our extensive collection and discover new and exciting films.',
+    image: IconAssets.Step1,
   },
   {
     id: '2',
-    title: 'Enjoy your favorite movie with your us',
+    title: 'Create and share your lists with your friends',
     subtitle:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.',
+      'Build personalized movie lists and share them with your friends for a unique social experience.',
+    image: IconAssets.Step2,
   },
   {
     id: '3',
-    title: 'Book your favorite movie ticket here',
+    title: 'Manage your favorite series and movies',
     subtitle:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.',
+      'Keep track of your favorite series and movies and never miss a moment.',
+    image: IconAssets.Step3,
   },
 ];
