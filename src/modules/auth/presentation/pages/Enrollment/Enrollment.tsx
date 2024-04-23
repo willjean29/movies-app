@@ -1,6 +1,7 @@
 import React, {useRef, useState} from 'react';
 import {FlatList, NativeScrollEvent, NativeSyntheticEvent} from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {slides} from '@modules/auth/domain/slide.data';
 import {Container} from '@shared/presentation/components/Container';
 import {DeviceDimensions} from '@shared/presentation/utils/device';
@@ -28,11 +29,12 @@ const Enrollment: React.FC<EnrollmentScreenNavigationProps> = ({
     setCurrentSlideIndex(currentIndex);
   };
 
-  const goToNextSlide = () => {
+  const goToNextSlide = async () => {
     if (currentSlideIndex < slides.length - 1) {
       setCurrentSlideIndex(currentSlideIndex + 1);
       ref.current?.scrollToIndex({index: currentSlideIndex + 1});
     } else {
+      await AsyncStorage.setItem('isEnrollment', 'true');
       navigation.replace(AuthRoutesName.Login);
     }
   };

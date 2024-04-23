@@ -24,7 +24,7 @@ const Slide: React.FC<SlideProps> = ({
   return (
     <FlexContainer width={DeviceDimensions.Width}>
       <FlexContainer height={DeviceDimensions.Height * 0.25}>
-        <SpacingContainer paddingHorizontal={20}>
+        <SpacingContainer paddingHorizontal={20} paddingVertical={20}>
           <Title title={item.title} />
           <SpacingContainer marginVertical={10}>
             <Text size="BodyMedium">{item.subtitle}</Text>
