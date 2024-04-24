@@ -8,6 +8,7 @@ import {
 import AuthNavigation from '@modules/auth/presentation/navigation/AuthNavigation';
 import darkTheme from '@shared/presentation/theme/dark';
 import lightTheme from '@shared/presentation/theme/light';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const AppNavigation = () => {
   const {mode} = useThemeState();
@@ -20,9 +21,11 @@ const AppNavigation = () => {
 
 function App(): React.JSX.Element {
   return (
-    <ThemeProvider>
-      <AppNavigation />
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider>
+        <AppNavigation />
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }
 
