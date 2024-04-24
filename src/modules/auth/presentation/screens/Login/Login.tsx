@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {IconAssets} from '@shared/presentation/utils/icons';
 import {useForm, Controller} from 'react-hook-form';
 import {useNavigation} from '@react-navigation/native';
@@ -17,7 +18,6 @@ import {Image} from '@shared/presentation/components/Image';
 import {DeviceDimensions} from '@shared/presentation/utils/device';
 import {AuthRoutesName} from '@modules/auth/domain/routes-names';
 import {loginFormYupSchema} from './login.schema';
-import {useState} from 'react';
 
 const Login = () => {
   const navigation = useNavigation();

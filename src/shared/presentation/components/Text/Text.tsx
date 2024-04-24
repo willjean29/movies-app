@@ -20,20 +20,25 @@ const StyledTextComponent: React.FC<StyledTextComponentProps> = ({
   onPress,
   ...props
 }) => {
-  return (
-    <TouchableOpacity
-      activeOpacity={1}
-      onPress={mode === 'link' ? onPress : undefined}>
-      <StyledText
-        weight={weight}
-        mode={mode}
-        size={size}
-        align={align}
-        {...props}>
-        {children}
-      </StyledText>
-    </TouchableOpacity>
+  const StyledTextElement = () => (
+    <StyledText
+      weight={weight}
+      mode={mode}
+      size={size}
+      align={align}
+      {...props}>
+      {children}
+    </StyledText>
   );
+
+  if (mode === 'link') {
+    return (
+      <TouchableOpacity activeOpacity={1} onPress={onPress}>
+        <StyledTextElement />
+      </TouchableOpacity>
+    );
+  }
+  return <StyledTextElement />;
 };
 
 interface StyledTextProps

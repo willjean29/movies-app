@@ -6,7 +6,6 @@ import Register from '@modules/auth/presentation/screens/Register/Register';
 import Enrollment from '@modules/auth/presentation/screens/Enrollment/Enrollment';
 import {AuthRoutesName} from '@modules/auth/domain/routes-names';
 import {AuthStackParamList} from '@modules/auth/domain/navigation';
-import {Text} from '@shared/presentation/components/Text';
 import {Splash} from '@shared/presentation/screens/Splash';
 
 const Stack = createStackNavigator<AuthStackParamList>();
