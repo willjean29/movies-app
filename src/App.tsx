@@ -1,19 +1,18 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {
-  ThemeProvider,
-  useThemeState,
-} from '@shared/presentation/theme/ThemeProvider';
-import AuthNavigation from '@modules/auth/presentation/navigation/AuthNavigation';
-import darkTheme from '@shared/presentation/theme/dark';
-import lightTheme from '@shared/presentation/theme/light';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import AuthNavigation from '@modules/auth/presentation/navigation/AuthNavigation';
+import {
+  GlobalAppProvider,
+  useGlobalAppState,
+} from '@shared/presentation/store/app-context';
+import {darkTheme, lightTheme} from '@shared/config/theme';
 
 const AppNavigation = () => {
-  const {mode} = useThemeState();
+  const {theme} = useGlobalAppState();
   return (
-    <NavigationContainer theme={mode === 'dark' ? darkTheme : lightTheme}>
+    <NavigationContainer theme={theme === 'dark' ? darkTheme : lightTheme}>
       <AuthNavigation />
     </NavigationContainer>
   );
@@ -22,9 +21,9 @@ const AppNavigation = () => {
 function App(): React.JSX.Element {
   return (
     <SafeAreaProvider>
-      <ThemeProvider>
+      <GlobalAppProvider>
         <AppNavigation />
-      </ThemeProvider>
+      </GlobalAppProvider>
     </SafeAreaProvider>
   );
 }
