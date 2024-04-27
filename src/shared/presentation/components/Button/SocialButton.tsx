@@ -1,6 +1,6 @@
 import {Image} from 'react-native';
 import React from 'react';
-import {IconAssets} from '@shared/presentation/utils/icons';
+import {IconAssets} from '@shared/config/constants/icons';
 import Button from './Button';
 import {useGlobalAppState} from '@shared/presentation/store/app-context';
 

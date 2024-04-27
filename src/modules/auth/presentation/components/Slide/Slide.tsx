@@ -3,7 +3,7 @@ import {
   FlexContainer,
   SpacingContainer,
 } from '@shared/presentation/components/Container';
-import {DeviceDimensions} from '@shared/presentation/utils/device';
+import {DeviceDimensions} from '@shared/config/constants/device';
 import {Text} from '@shared/presentation/components/Text';
 import {Icon} from '@shared/presentation/components/Icon';
 import {Image} from '@shared/presentation/components/Image';

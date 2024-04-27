@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {IconAssets} from '@shared/presentation/utils/icons';
+import {IconAssets} from '@shared/config/constants/icons';
 import {useForm, Controller} from 'react-hook-form';
 import {useNavigation} from '@react-navigation/native';
 import {yupResolver} from '@hookform/resolvers/yup';
@@ -15,7 +15,7 @@ import {SocialButton, Button} from '@shared/presentation/components/Button';
 import {Divider} from '@shared/presentation/components/Divider';
 import {TextInput} from '@shared/presentation/components/TextInput';
 import {Image} from '@shared/presentation/components/Image';
-import {DeviceDimensions} from '@shared/presentation/utils/device';
+import {DeviceDimensions} from '@shared/config/constants/device';
 import {AuthRoutesName} from '@modules/auth/domain/routes-names';
 import {loginFormYupSchema} from './login.schema';
 

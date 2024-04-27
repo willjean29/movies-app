@@ -2,7 +2,7 @@ import {AppActions} from '@shared/domain/app-actions.enum';
 import {AppReducerFn, AppState, DispatchObject} from '@shared/domain/app-store';
 import {Draft, produce} from 'immer';
 import {Appearance} from 'react-native';
-import {throwUnhandleActionError} from '@shared/presentation/utils/expections';
+import {throwUnhandleActionError} from '@shared/config/helpers/expections';
 
 export const appInitialState: AppState = {
   user: null,

@@ -4,7 +4,7 @@ import {StackScreenProps} from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {slides} from '@modules/auth/domain/slide.data';
 import {Container} from '@shared/presentation/components/Container';
-import {DeviceDimensions} from '@shared/presentation/utils/device';
+import {DeviceDimensions} from '@shared/config/constants/device';
 import {ItemSlide} from '@modules/auth/domain/slide.data';
 import {Slide} from '@modules/auth/presentation/components/Slide';
 import {AuthRoutesName} from '@modules/auth/domain/routes-names';

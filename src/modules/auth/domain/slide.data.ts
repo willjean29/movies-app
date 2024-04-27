@@ -1,4 +1,4 @@
-import {IconAssets} from '@shared/presentation/utils/icons';
+import {IconAssets} from '@shared/config/constants/icons';
 import {ImageSourcePropType} from 'react-native';
 
 export interface ItemSlide {

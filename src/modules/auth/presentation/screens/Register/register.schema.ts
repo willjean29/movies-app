@@ -1,6 +1,6 @@
 import {RegisterFieldName} from '@modules/auth/domain/register-form-fields';
-import {ErrorMessage} from '@shared/presentation/utils/errro-messages';
-import {Regex} from '@shared/presentation/utils/regex';
+import {ErrorMessage} from '@shared/config/constants/errro-messages';
+import {Regex} from '@shared/config/constants/regex';
 import {object as yupObject, string as yupString, ref} from 'yup';
 
 export const registerYuupSchema = yupObject().shape({

@@ -4,7 +4,7 @@ import {
   FlexContainer,
 } from '@shared/presentation/components/Container';
 import {Image} from '@shared/presentation/components/Image';
-import {IconAssets} from '../../utils/icons';
+import {IconAssets} from '@shared/config/constants/icons';
 
 const Splash = () => {
   return (
