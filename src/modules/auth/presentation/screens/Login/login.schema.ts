@@ -10,10 +10,5 @@ export const loginFormYupSchema = yupObject().shape({
       message: ErrorMessage.InvalidEmail,
       excludeEmptyString: true,
     }),
-  [LoginFieldName.Password]: yupString()
-    .required(ErrorMessage.Required)
-    .matches(Regex.password, {
-      message: ErrorMessage.InvalidPassword,
-      excludeEmptyString: true,
-    }),
+  [LoginFieldName.Password]: yupString().required(ErrorMessage.Required),
 });

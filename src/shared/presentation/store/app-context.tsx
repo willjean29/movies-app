@@ -1,16 +1,21 @@
 import React, {createContext, useContext, useEffect, useReducer} from 'react';
 import {Appearance, StatusBar} from 'react-native';
 import {ThemeProvider as StyledThemeProvider} from 'styled-components/native';
-import {Theme, ThemeProviderProps} from '@shared/domain/theme-state';
 import {appInitialState, AppReducer} from './reducer';
-import {AppDispatch, AppState} from '@shared/domain/app-store';
+import {
+  AppDispatch,
+  AppState,
+  GlobalAppProviderProps,
+} from '@shared/domain/app-store';
 import {AppActions} from '@shared/domain/app-actions.enum';
-import {darkTheme, lightTheme} from '@shared/config/theme';
+import {darkTheme, lightTheme, Theme} from '@shared/config/theme';
 
 const AppStateContext = createContext<AppState | undefined>(undefined);
 const AppDispatchContext = createContext<AppDispatch | undefined>(undefined);
 
-export const GlobalAppProvider: React.FC<ThemeProviderProps> = ({children}) => {
+export const GlobalAppProvider: React.FC<GlobalAppProviderProps> = ({
+  children,
+}) => {
   const [state, dispatch] = useReducer(AppReducer, appInitialState);
 
   useEffect(() => {

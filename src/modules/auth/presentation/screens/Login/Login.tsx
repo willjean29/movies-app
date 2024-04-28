@@ -18,8 +18,11 @@ import {Image} from '@shared/presentation/components/Image';
 import {DeviceDimensions} from '@shared/config/constants/device';
 import {AuthRoutesName} from '@modules/auth/domain/routes-names';
 import {loginFormYupSchema} from './login.schema';
+import {useGlobalAppDispatch} from '@shared/presentation/store/app-context';
+import {AuthActions} from '../../store/actions';
 
 const Login = () => {
+  const dispatchApp = useGlobalAppDispatch();
   const navigation = useNavigation();
   const [hiddenPassword, setHiddenPassword] = useState(true);
   const defaultValues: LoginFormFields = {
@@ -42,8 +45,14 @@ const Login = () => {
     navigation.navigate(AuthRoutesName.Register);
   };
 
-  const handleLogin = (data: LoginFormFields) => {
+  const handleLogin = async (data: LoginFormFields) => {
     console.log({data});
+    try {
+      const userInfo = await AuthActions.validateUser(dispatchApp, data);
+      console.log({userInfo});
+    } catch (error) {
+      console.log({error});
+    }
     // todo : implement login service
   };
   return (

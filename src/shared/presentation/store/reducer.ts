@@ -13,6 +13,10 @@ export const appInitialState: AppState = {
   error: null,
 };
 
+const handleSetUserEntity: AppReducerFn = ({draft, payload}) => {
+  draft.user = payload;
+};
+
 const handleSaveThemeMode: AppReducerFn = ({draft, payload}) => {
   draft.theme = payload;
 };
@@ -38,6 +42,7 @@ const themeReducerHandlers: Record<AppActions, AppReducerFn> = {
   [AppActions.IsFetching]: handleIsFetching,
   [AppActions.FinishedFetching]: handleFinishedFetching,
   [AppActions.ErrorFetching]: handleErrorFetching,
+  [AppActions.SetUserEntity]: handleSetUserEntity,
 };
 
 export const AppReducer = produce(
