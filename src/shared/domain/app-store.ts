@@ -1,6 +1,7 @@
 import {Draft} from 'immer';
 import {Dispatch} from 'react';
 import {AppActions} from './app-actions.enum';
+import {ErrorPageInterface} from '@shared/config/error/error-page-types';
 
 export type AppDispatch = Dispatch<DispatchObject<AppActions>>;
 
@@ -9,7 +10,7 @@ export interface AppState {
   theme: 'light' | 'dark';
   pendingFetches: number;
   isFetching: boolean;
-  error: null;
+  error: null | ErrorPageInterface;
 }
 
 export interface DispatchObject<T, P = any> {
