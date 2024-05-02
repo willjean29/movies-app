@@ -17,19 +17,10 @@ const StyledContainerComponent: React.FC<StyledContainerComponentProps> = ({
   isViewKeyboardAware = false,
   ...props
 }) => {
-  const {top, bottom, left, right} = useSafeAreaInsets();
+  const {top} = useSafeAreaInsets();
+
   return (
-    <StyledContainer
-      style={[
-        {
-          paddingTop: top,
-          paddingBottom: bottom,
-          paddingLeft: left,
-          paddingRight: right,
-        },
-        style,
-      ]}
-      {...props}>
+    <StyledContainer style={[{paddingTop: top}, style]} {...props}>
       {isViewKeyboardAware ? (
         <KeyboardAwareScrollView style={{flex: 1}}>
           <View style={{minHeight: '100%'}}>{children}</View>

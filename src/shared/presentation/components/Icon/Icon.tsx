@@ -1,9 +1,9 @@
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {Icon, IconProps} from 'react-native-vector-icons/Icon';
+import {IconProps} from 'react-native-vector-icons/Icon';
 import styled, {useTheme} from 'styled-components/native';
-import {TypeTheme} from '@shared/presentation/theme/ThemeProvider';
+import {TypeTheme} from '@shared/config/theme';
 
 interface ExtraStyledIconComponentProps {
   mode?: 'icon' | 'button';

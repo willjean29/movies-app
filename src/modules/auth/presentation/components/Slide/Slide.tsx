@@ -23,7 +23,7 @@ const Slide: React.FC<SlideProps> = ({
 }) => {
   return (
     <FlexContainer width={DeviceDimensions.Width}>
-      <FlexContainer height={DeviceDimensions.Height * 0.25}>
+      <FlexContainer>
         <SpacingContainer paddingHorizontal={20} paddingVertical={20}>
           <Title title={item.title} />
           <SpacingContainer marginVertical={10}>
@@ -39,14 +39,10 @@ const Slide: React.FC<SlideProps> = ({
         </SpacingContainer>
       </FlexContainer>
 
-      <FlexContainer
-        height={DeviceDimensions.Height * 0.75}
-        mode="row"
-        justifyContent="center"
-        alignItems="flex-end">
+      <FlexContainer flex={1} mode="row" alignItems="flex-end">
         <Image
           width={DeviceDimensions.Width}
-          height={DeviceDimensions.Height * 0.7}
+          height={DeviceDimensions.Height * 0.6}
           source={item.image}
         />
       </FlexContainer>

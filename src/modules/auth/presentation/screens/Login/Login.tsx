@@ -57,8 +57,10 @@ const Login = () => {
   };
   return (
     <Container isViewKeyboardAware>
-      <SpacingContainer flex={1} paddingHorizontal={20}>
-        <FlexContainer height={DeviceDimensions.Height * 0.8}>
+      <SpacingContainer
+        style={{height: DeviceDimensions.Height}}
+        paddingHorizontal={20}>
+        <FlexContainer>
           <FlexContainer alignItems="center">
             <SpacingContainer marginVertical={20}>
               <Image source={IconAssets.Logo} />
@@ -132,21 +134,19 @@ const Login = () => {
           </SpacingContainer>
         </FlexContainer>
 
-        <FlexContainer height={DeviceDimensions.Height * 0.2}>
-          <SpacingContainer marginVertical={20}>
-            <FlexContainer
-              mode="row"
-              justifyContent="center"
-              alignItems="center"
-              gap={5}>
-              <Text size="BodyMedium" align="center">
-                Didn´t have an account?
-              </Text>
-              <Text size="BodyMedium" mode="link" onPress={navigateToRegister}>
-                Register
-              </Text>
-            </FlexContainer>
-          </SpacingContainer>
+        <FlexContainer flex={1} justifyContent="center">
+          <FlexContainer
+            mode="row"
+            justifyContent="center"
+            alignItems="center"
+            gap={5}>
+            <Text size="BodyMedium" align="center">
+              Didn´t have an account?
+            </Text>
+            <Text size="BodyMedium" mode="link" onPress={navigateToRegister}>
+              Register
+            </Text>
+          </FlexContainer>
         </FlexContainer>
       </SpacingContainer>
     </Container>

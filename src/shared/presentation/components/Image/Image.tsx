@@ -2,7 +2,7 @@ import {ImageSourcePropType, ImageProps} from 'react-native';
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import {useTheme} from 'styled-components';
-import {TypeTheme} from '@shared/presentation/theme/ThemeProvider';
+import {TypeTheme} from '@shared/config/theme';
 
 interface StyledImageComponetProps {
   source?: ImageSourcePropType;

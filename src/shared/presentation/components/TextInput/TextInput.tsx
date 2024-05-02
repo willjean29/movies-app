@@ -1,8 +1,8 @@
 import React from 'react';
 import {TextInputProps} from 'react-native';
 import styled, {useTheme} from 'styled-components/native';
-import {TypeTheme} from '@shared/presentation/theme/ThemeProvider';
-import {Text, TextError} from '../Text';
+import {TypeTheme} from '@shared/config/theme';
+import {TextError} from '../Text';
 import {Icon} from '../Icon';
 
 interface ExtraStyledInputComponentProps {

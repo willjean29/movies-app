@@ -2,8 +2,9 @@ import {ImageProps, TextStyle, TouchableOpacityProps} from 'react-native';
 import styled from 'styled-components/native';
 import {useTheme} from 'styled-components/native';
 import {IconProps} from 'react-native-vector-icons/Icon';
-import {TypeTheme} from '@shared/presentation/theme/ThemeProvider';
+import {TypeTheme} from '@shared/config/theme';
 import {Text} from '../Text';
+
 interface ExtraStyledButtonComponentProps {
   children: React.ReactNode;
   mode?: 'text' | 'outlined' | 'contained';
@@ -60,7 +61,7 @@ const StyledButton = styled.TouchableOpacity<StyledButtonProps>`
         return 'transparent';
     }
   }};
-  border-width: ${props => props.mode === 'outlined' && '1px'};
+  border-width: ${props => (props.mode === 'outlined' ? '1px' : '0px')};
   border-color: ${props =>
     props.mode === 'outlined' && props.theme.colors.border};
   width: 100%;

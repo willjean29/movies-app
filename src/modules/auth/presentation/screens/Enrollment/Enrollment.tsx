@@ -31,8 +31,11 @@ const Enrollment: React.FC<EnrollmentScreenNavigationProps> = ({
 
   const goToNextSlide = async () => {
     if (currentSlideIndex < slides.length - 1) {
-      setCurrentSlideIndex(currentSlideIndex + 1);
-      ref.current?.scrollToIndex({index: currentSlideIndex + 1});
+      const nextSlideIndex = currentSlideIndex + 1;
+      setCurrentSlideIndex(nextSlideIndex);
+      if (ref.current) {
+        ref.current.scrollToIndex({index: nextSlideIndex, animated: true});
+      }
     } else {
       await AsyncStorage.setItem('isEnrollment', 'true');
       navigation.replace(AuthRoutesName.Login);
