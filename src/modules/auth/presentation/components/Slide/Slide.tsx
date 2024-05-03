@@ -10,6 +10,7 @@ import {Image} from '@shared/presentation/components/Image';
 import {ItemSlide} from '@modules/auth/domain/slide.data';
 import Indicator from './Indicator';
 import Title from './Title';
+import {View} from 'react-native';
 
 interface SlideProps {
   item: ItemSlide;
@@ -38,14 +39,9 @@ const Slide: React.FC<SlideProps> = ({
           <Indicator currentSlideIndex={currentSlideIndex} />
         </SpacingContainer>
       </FlexContainer>
-
-      <FlexContainer flex={1} mode="row" alignItems="flex-end">
-        <Image
-          width={DeviceDimensions.Width}
-          height={DeviceDimensions.Height * 0.6}
-          source={item.image}
-        />
-      </FlexContainer>
+      <View style={{flex: 1}}>
+        <Image source={item.image} flex={1} />
+      </View>
     </FlexContainer>
   );
 };

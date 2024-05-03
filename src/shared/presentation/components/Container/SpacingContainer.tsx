@@ -1,5 +1,6 @@
 import React from 'react';
 import {ViewProps} from 'react-native';
+import {scale, verticalScale} from 'react-native-size-matters';
 import styled from 'styled-components/native';
 
 interface ExtraStyledSpacingContainerComponentProps {
@@ -28,10 +29,10 @@ const StyledSpacingContainerComponent: React.FC<
 }) => {
   return (
     <StyledContainer
-      paddingVertical={paddingVertical}
-      paddingHorizontal={paddingHorizontal}
-      marginVertical={marginVertical}
-      marginHorizontal={marginHorizontal}
+      paddingVertical={verticalScale(paddingVertical)}
+      paddingHorizontal={scale(paddingHorizontal)}
+      marginVertical={verticalScale(marginVertical)}
+      marginHorizontal={scale(marginHorizontal)}
       flex={flex}
       {...props}>
       {children}

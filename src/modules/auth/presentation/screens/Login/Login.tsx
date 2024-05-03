@@ -57,9 +57,7 @@ const Login = () => {
   };
   return (
     <Container isViewKeyboardAware>
-      <SpacingContainer
-        style={{height: DeviceDimensions.Height}}
-        paddingHorizontal={20}>
+      <SpacingContainer paddingHorizontal={20}>
         <FlexContainer>
           <FlexContainer alignItems="center">
             <SpacingContainer marginVertical={20}>
@@ -68,7 +66,7 @@ const Login = () => {
             <Text size="TitleSmall" align="center" weight="bold">
               Welcome Back
             </Text>
-            <SpacingContainer marginVertical={20} marginHorizontal={60}>
+            <SpacingContainer marginVertical={20} marginHorizontal={20}>
               <Text size="BodyMedium" align="center" mode="secondary">
                 Login into your account using email or social networks
               </Text>
@@ -135,18 +133,20 @@ const Login = () => {
         </FlexContainer>
 
         <FlexContainer flex={1} justifyContent="center">
-          <FlexContainer
-            mode="row"
-            justifyContent="center"
-            alignItems="center"
-            gap={5}>
-            <Text size="BodyMedium" align="center">
-              Didn´t have an account?
-            </Text>
-            <Text size="BodyMedium" mode="link" onPress={navigateToRegister}>
-              Register
-            </Text>
-          </FlexContainer>
+          <SpacingContainer marginVertical={20}>
+            <FlexContainer
+              mode="row"
+              justifyContent="center"
+              alignItems="center"
+              gap={5}>
+              <Text size="BodyMedium" align="center">
+                Didn´t have an account?
+              </Text>
+              <Text size="BodyMedium" mode="link" onPress={navigateToRegister}>
+                Register
+              </Text>
+            </FlexContainer>
+          </SpacingContainer>
         </FlexContainer>
       </SpacingContainer>
     </Container>

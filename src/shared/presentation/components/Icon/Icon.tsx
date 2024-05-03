@@ -4,7 +4,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {IconProps} from 'react-native-vector-icons/Icon';
 import styled, {useTheme} from 'styled-components/native';
 import {TypeTheme} from '@shared/config/theme';
-
+import {moderateScale} from 'react-native-size-matters';
 interface ExtraStyledIconComponentProps {
   mode?: 'icon' | 'button';
 }
@@ -18,7 +18,10 @@ const StyledIconComponent: React.FC<StyledIconComponentProps> = ({
   const {colors} = useTheme() as TypeTheme;
   if (mode === 'button') {
     return (
-      <StyledIconButton activeOpacity={1} onPress={onPress}>
+      <StyledIconButton
+        activeOpacity={1}
+        onPress={onPress}
+        size={moderateScale(50)}>
         <MaterialCommunityIcons color={colors.white} {...props} />
       </StyledIconButton>
     );
@@ -30,14 +33,14 @@ const StyledIconComponent: React.FC<StyledIconComponentProps> = ({
   );
 };
 
-const StyledIconButton = styled.TouchableOpacity`
-  border-radius: 50px;
+const StyledIconButton = styled.TouchableOpacity<{size: number}>`
+  border-radius: ${({size}) => size / 2}px;
   background-color: ${({theme}) => theme.colors.primary};
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 50px;
-  height: 50px;
+  width: ${({size}) => size}px;
+  height: ${({size}) => size}px;
 `;
 
 export default StyledIconComponent;

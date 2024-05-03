@@ -46,7 +46,7 @@ interface StyledTextProps
 
 const StyledText = styled.Text<StyledTextProps>`
   font-size: ${props =>
-    props.size ? FontSize[props.size] : FontSize.BodyLarge};
+    props.size ? `${FontSize[props.size]}px` : `${FontSize.BodyLarge}px`};
   font-weight: ${props => props.weight};
   color: ${props => {
     switch (props.mode) {

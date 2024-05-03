@@ -45,7 +45,7 @@ const Register = () => {
   return (
     <Container isViewKeyboardAware>
       <SpacingContainer flex={1} paddingHorizontal={20}>
-        <FlexContainer height={DeviceDimensions.Height * 0.8}>
+        <FlexContainer>
           <FlexContainer alignItems="center">
             <SpacingContainer marginVertical={20}>
               <Image source={IconAssets.Logo} />
@@ -53,7 +53,7 @@ const Register = () => {
             <Text size="TitleSmall" align="center" weight="bold">
               Create a New Account{' '}
             </Text>
-            <SpacingContainer marginVertical={20} marginHorizontal={60}>
+            <SpacingContainer marginVertical={20} marginHorizontal={20}>
               <Text size="BodyMedium" align="center" mode="secondary">
                 Set up your username and password. {'\n'} You can always change
                 it later.
@@ -125,7 +125,7 @@ const Register = () => {
           </SpacingContainer>
         </FlexContainer>
 
-        <FlexContainer height={DeviceDimensions.Height * 0.2}>
+        <FlexContainer flex={1}>
           <SpacingContainer marginVertical={20}>
             <FlexContainer
               mode="row"
