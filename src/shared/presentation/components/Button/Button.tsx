@@ -4,6 +4,7 @@ import {useTheme} from 'styled-components/native';
 import {IconProps} from 'react-native-vector-icons/Icon';
 import {TypeTheme} from '@shared/config/theme';
 import {Text} from '../Text';
+import {moderateScale, scale} from 'react-native-size-matters';
 
 interface ExtraStyledButtonComponentProps {
   children: React.ReactNode;
@@ -65,15 +66,15 @@ const StyledButton = styled.TouchableOpacity<StyledButtonProps>`
   border-color: ${props =>
     props.mode === 'outlined' && props.theme.colors.border};
   width: 100%;
-  height: 50px;
-  padding: 10px;
-  border-radius: 10px;
+  height: ${() => moderateScale(50)}px;
+  padding: ${() => moderateScale(10)}px;
+  border-radius: ${() => moderateScale(10)}px;
   justify-content: center;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  gap: ${() => moderateScale(10)}px;
+  margin-top: ${() => moderateScale(10)}px;
+  margin-bottom: ${() => moderateScale(10)}px;
 `;
 
 export default StyledButtonComponent;

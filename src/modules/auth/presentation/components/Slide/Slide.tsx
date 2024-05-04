@@ -22,6 +22,7 @@ const Slide: React.FC<SlideProps> = ({
   currentSlideIndex,
   goToNextSlide,
 }) => {
+  console.log({DeviceDimensions});
   return (
     <FlexContainer width={DeviceDimensions.Width}>
       <FlexContainer>
@@ -39,9 +40,9 @@ const Slide: React.FC<SlideProps> = ({
           <Indicator currentSlideIndex={currentSlideIndex} />
         </SpacingContainer>
       </FlexContainer>
-      <View style={{flex: 1}}>
+      <FlexContainer flex={1}>
         <Image source={item.image} flex={1} />
-      </View>
+      </FlexContainer>
     </FlexContainer>
   );
 };

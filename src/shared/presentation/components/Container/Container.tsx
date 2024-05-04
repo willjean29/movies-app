@@ -1,4 +1,4 @@
-import {ScrollView, View, ViewProps} from 'react-native';
+import {View, ViewProps} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styled from 'styled-components/native';

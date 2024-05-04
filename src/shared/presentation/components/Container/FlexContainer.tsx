@@ -49,8 +49,8 @@ const StyledFlexContainerComponent: React.FC<
 };
 
 const StyledFlexContainer = styled.View<ExtraStyledFlexContainerComponentProps>`
-  width: ${props => (props.width ? `${props.width}px` : 'auto')};
-  height: ${props => (props.height ? `${props.height}px` : 'auto')};
+  ${props => props.width && `width:${props.width}px`};
+  ${props => props.height && `height:${props.height}px`};
   ${props => props.mode && `flex-direction: ${props.mode};`}
   ${props =>
     props.justifyContent && `justify-content: ${props.justifyContent};`}

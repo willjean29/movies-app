@@ -39,7 +39,7 @@ const Login = () => {
     resolver: yupResolver(loginFormYupSchema),
     defaultValues: defaultValues,
   });
-
+  console.log({DeviceDimensions});
   const navigateToRegister = () => {
     reset();
     navigation.navigate(AuthRoutesName.Register);

@@ -13,18 +13,18 @@ interface StyledImageComponetProps {
 }
 const StyledImageComponet: React.FC<StyledImageComponetProps & ImageProps> = ({
   source,
-  imgWidth = 100,
-  imgHeight = 100,
+  imgWidth = 80,
+  imgHeight = 80,
   flex,
   ...props
 }) => {
   const {colors} = useTheme() as TypeTheme;
   const [isLoading, setIsLoading] = useState(true);
-  console.log({imgWidth, imgHeight, flex});
+
   return (
     <StyledImageWrapper
-      imgWidth={scale(100)}
-      imgHeight={scale(100)}
+      imgWidth={scale(imgWidth)}
+      imgHeight={scale(imgHeight)}
       flex={flex}>
       {isLoading && <StyledSpinner size="large" color={colors.primary} />}
       <StyledImage
