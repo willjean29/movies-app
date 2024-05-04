@@ -1,17 +1,17 @@
-import {moderateScale} from 'react-native-size-matters';
+import {moderateVerticalScale} from 'react-native-size-matters';
 export enum FontSize {
-  BodySmall = moderateScale(12),
-  BodyMedium = moderateScale(14),
-  BodyLarge = moderateScale(16),
-  LabelSmall = moderateScale(18),
-  LabelMedium = moderateScale(20),
-  LabelLarge = moderateScale(22),
-  TitleSmall = moderateScale(24),
-  TitleMedium = moderateScale(26),
-  TitleLarge = moderateScale(28),
-  HeadlineSmall = moderateScale(30),
-  HeadlineMedium = moderateScale(32),
-  HeadlineLarge = moderateScale(34),
+  BodySmall = moderateVerticalScale(12),
+  BodyMedium = moderateVerticalScale(14),
+  BodyLarge = moderateVerticalScale(16),
+  LabelSmall = moderateVerticalScale(18),
+  LabelMedium = moderateVerticalScale(20),
+  LabelLarge = moderateVerticalScale(22),
+  TitleSmall = moderateVerticalScale(24),
+  TitleMedium = moderateVerticalScale(26),
+  TitleLarge = moderateVerticalScale(28),
+  HeadlineSmall = moderateVerticalScale(30),
+  HeadlineMedium = moderateVerticalScale(32),
+  HeadlineLarge = moderateVerticalScale(34),
 }
 
 export type FontSizeType = keyof typeof FontSize;

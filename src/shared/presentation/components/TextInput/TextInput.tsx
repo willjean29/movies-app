@@ -4,7 +4,7 @@ import styled, {useTheme} from 'styled-components/native';
 import {TypeTheme} from '@shared/config/theme';
 import {TextError} from '../Text';
 import {Icon} from '../Icon';
-import {moderateScale} from 'react-native-size-matters';
+import {moderateScale, scale} from 'react-native-size-matters';
 import {FontSize} from '@shared/config/constants/font-sizes';
 
 interface ExtraStyledInputComponentProps {
@@ -35,7 +35,7 @@ const StyledInputComponent: React.FC<StyledInputComponentProps> = ({
         {iconLeft && (
           <Icon
             name={iconLeft}
-            size={iconSize || 20}
+            size={iconSize}
             onPress={onPressIconLeft}
             color={colors.primaryText}
           />
@@ -45,7 +45,7 @@ const StyledInputComponent: React.FC<StyledInputComponentProps> = ({
         {iconRight && (
           <Icon
             name={iconRight}
-            size={iconSize || 20}
+            size={iconSize}
             onPress={onPressIconRight}
             color={colors.primaryText}
           />
@@ -60,15 +60,15 @@ const StyledInputWrapper = styled.View<ExtraStyledInputComponentProps>`
   flex-direction: row;
   background-color: ${props => props.theme.colors.background};
   border-radius: ${() => moderateScale(10)}px;
-  height: ${() => moderateScale(50)}px;
+  height: ${() => scale(45)}px;
   justify-content: space-between;
   align-items: center;
   border-width: 1px;
   border-color: ${props =>
     props.error ? props.theme.colors.error : props.theme.colors.border};
-  padding: 0 ${() => moderateScale(10)}px;
-  margin-top: ${() => moderateScale(10)}px;
-  margin-bottom: ${() => moderateScale(10)}px;
+  padding: 0 ${() => scale(10)}px;
+  margin-top: ${({error}) => moderateScale(error ? 5 : 10)}px;
+  margin-bottom: ${({error}) => moderateScale(error ? 5 : 10)}px;
   gap: ${() => moderateScale(10)}px;
 `;
 const StyledInput = styled.TextInput`

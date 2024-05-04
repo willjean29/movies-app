@@ -10,7 +10,6 @@ import {Image} from '@shared/presentation/components/Image';
 import {ItemSlide} from '@modules/auth/domain/slide.data';
 import Indicator from './Indicator';
 import Title from './Title';
-import {View} from 'react-native';
 
 interface SlideProps {
   item: ItemSlide;
@@ -22,7 +21,6 @@ const Slide: React.FC<SlideProps> = ({
   currentSlideIndex,
   goToNextSlide,
 }) => {
-  console.log({DeviceDimensions});
   return (
     <FlexContainer width={DeviceDimensions.Width}>
       <FlexContainer>

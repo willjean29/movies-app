@@ -3,6 +3,7 @@ import React from 'react';
 import {IconAssets} from '@shared/config/constants/icons';
 import Button from './Button';
 import {useGlobalAppState} from '@shared/presentation/store/app-context';
+import {moderateVerticalScale, scale} from 'react-native-size-matters';
 
 interface SocialButtonProps {
   social: 'google' | 'apple';
@@ -15,7 +16,17 @@ const SocialButton: React.FC<SocialButtonProps> = ({social, text}) => {
       ? IconAssets.Google
       : IconAssets[theme == 'light' ? 'AppleLight' : 'AppleDark'];
   return (
-    <Button mode="outlined" icon={<Image source={path} />}>
+    <Button
+      mode="outlined"
+      icon={
+        <Image
+          source={path}
+          style={{
+            width: moderateVerticalScale(24),
+            height: moderateVerticalScale(24),
+          }}
+        />
+      }>
       {text}
     </Button>
   );

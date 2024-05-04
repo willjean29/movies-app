@@ -19,7 +19,7 @@ import {DeviceDimensions} from '@shared/config/constants/device';
 import {AuthRoutesName} from '@modules/auth/domain/routes-names';
 import {loginFormYupSchema} from './login.schema';
 import {useGlobalAppDispatch} from '@shared/presentation/store/app-context';
-import {AuthActions} from '../../store/actions';
+import {AuthActions} from '@modules/auth/presentation/store/actions';
 
 const Login = () => {
   const dispatchApp = useGlobalAppDispatch();
@@ -66,7 +66,7 @@ const Login = () => {
             <Text size="TitleSmall" align="center" weight="bold">
               Welcome Back
             </Text>
-            <SpacingContainer marginVertical={20} marginHorizontal={20}>
+            <SpacingContainer marginVertical={10} marginHorizontal={20}>
               <Text size="BodyMedium" align="center" mode="secondary">
                 Login into your account using email or social networks
               </Text>
@@ -119,20 +119,19 @@ const Login = () => {
               />
             )}
           />
-          <SpacingContainer
-            marginVertical={Object.entries(errors).length ? 10 : 0}>
+          <SpacingContainer marginVertical={0}>
             <Text size="BodyMedium" mode="link" align="right">
               Forgot your password?
             </Text>
           </SpacingContainer>
-          <SpacingContainer marginVertical={20}>
+          <SpacingContainer marginVertical={10}>
             <Button mode="contained" onPress={handleSubmit(handleLogin)}>
               Login
             </Button>
           </SpacingContainer>
         </FlexContainer>
 
-        <FlexContainer flex={1} justifyContent="center">
+        <FlexContainer justifyContent="center">
           <SpacingContainer marginVertical={20}>
             <FlexContainer
               mode="row"

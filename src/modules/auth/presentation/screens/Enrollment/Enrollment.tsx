@@ -20,7 +20,6 @@ const Enrollment: React.FC<EnrollmentScreenNavigationProps> = ({
 }) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const ref = useRef<FlatList>(null);
-  console.log({DeviceDimensions});
   const updateCurrentSlideIndex = (
     e: NativeSyntheticEvent<NativeScrollEvent>,
   ) => {

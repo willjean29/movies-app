@@ -11,7 +11,6 @@ import {Button} from '@shared/presentation/components/Button';
 import {TextInput} from '@shared/presentation/components/TextInput';
 import {Image} from '@shared/presentation/components/Image';
 import {AuthRoutesName} from '@modules/auth/domain/routes-names';
-import {DeviceDimensions} from '@shared/config/constants/device';
 import {Controller, useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {RegisterFormFields} from '@modules/auth/domain/register-form';
@@ -44,7 +43,7 @@ const Register = () => {
   };
   return (
     <Container isViewKeyboardAware>
-      <SpacingContainer flex={1} paddingHorizontal={20}>
+      <SpacingContainer paddingHorizontal={20}>
         <FlexContainer>
           <FlexContainer alignItems="center">
             <SpacingContainer marginVertical={20}>
@@ -53,7 +52,7 @@ const Register = () => {
             <Text size="TitleSmall" align="center" weight="bold">
               Create a New Account{' '}
             </Text>
-            <SpacingContainer marginVertical={20} marginHorizontal={20}>
+            <SpacingContainer marginVertical={10} marginHorizontal={20}>
               <Text size="BodyMedium" align="center" mode="secondary">
                 Set up your username and password. {'\n'} You can always change
                 it later.
@@ -125,7 +124,7 @@ const Register = () => {
           </SpacingContainer>
         </FlexContainer>
 
-        <FlexContainer flex={1}>
+        <FlexContainer>
           <SpacingContainer marginVertical={20}>
             <FlexContainer
               mode="row"

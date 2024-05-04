@@ -8,7 +8,7 @@ interface TextErrorProps {
 }
 const TextError: React.FC<TextErrorProps> = ({message}) => {
   return (
-    <SpacingContainer paddingHorizontal={20}>
+    <SpacingContainer paddingHorizontal={10}>
       <StyledTextError size="BodyMedium">{message}</StyledTextError>
     </SpacingContainer>
   );

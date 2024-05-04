@@ -66,15 +66,15 @@ const StyledButton = styled.TouchableOpacity<StyledButtonProps>`
   border-color: ${props =>
     props.mode === 'outlined' && props.theme.colors.border};
   width: 100%;
-  height: ${() => moderateScale(50)}px;
-  padding: ${() => moderateScale(10)}px;
+  height: ${() => scale(45)}px;
+  padding: ${() => scale(10)}px;
   border-radius: ${() => moderateScale(10)}px;
   justify-content: center;
   flex-direction: row;
   align-items: center;
-  gap: ${() => moderateScale(10)}px;
-  margin-top: ${() => moderateScale(10)}px;
-  margin-bottom: ${() => moderateScale(10)}px;
+  gap: ${() => scale(10)}px;
+  margin-top: ${() => scale(10)}px;
+  margin-bottom: ${() => scale(10)}px;
 `;
 
 export default StyledButtonComponent;
