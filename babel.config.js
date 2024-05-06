@@ -1,3 +1,4 @@
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 const config = require('./tsconfig.json');
 
 const { baseUrl, paths } = config.compilerOptions;
