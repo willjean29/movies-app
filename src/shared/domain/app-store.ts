@@ -1,8 +1,8 @@
-import {Draft} from 'immer';
-import {Dispatch, PropsWithChildren} from 'react';
-import {AppActions} from './app-actions.enum';
-import {ErrorPageInterface} from '@shared/config/error/error-page-types';
-import {UserEntity} from '@modules/auth/domain/entities/user.entity';
+import { Draft } from 'immer';
+import { Dispatch, PropsWithChildren } from 'react';
+import { AppActions } from './app-actions.enum';
+import { ErrorPageInterface } from '@shared/config/error/error-page-types';
+import { UserEntity } from '@modules/auth/domain/entities/user.entity';
 
 export type AppDispatch = Dispatch<DispatchObject<AppActions>>;
 

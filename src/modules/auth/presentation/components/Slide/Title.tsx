@@ -1,10 +1,10 @@
-import {FlexContainer} from '@shared/presentation/components/Container';
-import {Text} from '@shared/presentation/components/Text';
+import { FlexContainer } from '@shared/presentation/components/Container';
+import { Text } from '@shared/presentation/components/Text';
 import styled from 'styled-components/native';
 interface TitleProps {
   title: string;
 }
-const Title: React.FC<TitleProps> = ({title}) => {
+const Title: React.FC<TitleProps> = ({ title }) => {
   const words = title.split(' ');
   const length = words.length;
   const isLongTitle = length > 6;
@@ -15,11 +15,7 @@ const Title: React.FC<TitleProps> = ({title}) => {
   const lastWords = words.slice(2 + mainWordsLength).join(' ');
 
   return (
-    <FlexContainer
-      mode="row"
-      justifyContent="flex-start"
-      alignItems="center"
-      wrap="wrap">
+    <FlexContainer mode="row" justifyContent="flex-start" alignItems="center" wrap="wrap">
       <Text size="HeadlineSmall" weight="bold">
         {firsWords}{' '}
       </Text>
@@ -34,7 +30,7 @@ const Title: React.FC<TitleProps> = ({title}) => {
 };
 
 const StyledMainText = styled(Text)`
-  color: ${({theme}) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 export default Title;

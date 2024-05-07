@@ -1,26 +1,20 @@
-import {ImageProps, TextStyle, TouchableOpacityProps} from 'react-native';
+import { ImageProps, TextStyle, TouchableOpacityProps } from 'react-native';
 import styled from 'styled-components/native';
-import {useTheme} from 'styled-components/native';
-import {IconProps} from 'react-native-vector-icons/Icon';
-import {TypeTheme} from '@shared/config/theme';
-import {Text} from '../Text';
-import {moderateScale, scale} from 'react-native-size-matters';
+import { useTheme } from 'styled-components/native';
+import { IconProps } from 'react-native-vector-icons/Icon';
+import { TypeTheme } from '@shared/config/theme';
+import { Text } from '../Text';
+import { moderateScale, scale } from 'react-native-size-matters';
 
 interface ExtraStyledButtonComponentProps {
   children: React.ReactNode;
   mode?: 'text' | 'outlined' | 'contained';
   icon?: React.ReactElement<IconProps | ImageProps>;
 }
-type StyledButtonComponentProps = TouchableOpacityProps &
-  ExtraStyledButtonComponentProps;
+type StyledButtonComponentProps = TouchableOpacityProps & ExtraStyledButtonComponentProps;
 
-const StyledButtonComponent: React.FC<StyledButtonComponentProps> = ({
-  children,
-  mode = 'text',
-  icon,
-  ...props
-}) => {
-  const {colors} = useTheme() as TypeTheme;
+const StyledButtonComponent: React.FC<StyledButtonComponentProps> = ({ children, mode = 'text', icon, ...props }) => {
+  const { colors } = useTheme() as TypeTheme;
 
   const selectStylesText = (): TextStyle => {
     switch (mode) {
@@ -47,10 +41,9 @@ const StyledButtonComponent: React.FC<StyledButtonComponentProps> = ({
     </StyledButton>
   );
 };
-interface StyledButtonProps
-  extends Omit<ExtraStyledButtonComponentProps, 'children'> {}
+interface StyledButtonProps extends Omit<ExtraStyledButtonComponentProps, 'children'> {}
 const StyledButton = styled.TouchableOpacity<StyledButtonProps>`
-  background-color: ${props => {
+  background-color: ${(props) => {
     switch (props.mode) {
       case 'text':
         return 'transparent';
@@ -62,9 +55,8 @@ const StyledButton = styled.TouchableOpacity<StyledButtonProps>`
         return 'transparent';
     }
   }};
-  border-width: ${props => (props.mode === 'outlined' ? '1px' : '0px')};
-  border-color: ${props =>
-    props.mode === 'outlined' && props.theme.colors.border};
+  border-width: ${(props) => (props.mode === 'outlined' ? '1px' : '0px')};
+  border-color: ${(props) => props.mode === 'outlined' && props.theme.colors.border};
   width: 100%;
   height: ${() => scale(45)}px;
   padding: ${() => scale(10)}px;

@@ -1,6 +1,6 @@
 import React from 'react';
-import {ViewProps} from 'react-native';
-import {scale, verticalScale} from 'react-native-size-matters';
+import { ViewProps } from 'react-native';
+import { scale, verticalScale } from 'react-native-size-matters';
 import styled from 'styled-components/native';
 
 interface ExtraStyledSpacingContainerComponentProps {
@@ -12,12 +12,9 @@ interface ExtraStyledSpacingContainerComponentProps {
   marginHorizontal?: number;
   flex?: number;
 }
-type StyledSpacingContainerComponentProps = ViewProps &
-  ExtraStyledSpacingContainerComponentProps;
+type StyledSpacingContainerComponentProps = ViewProps & ExtraStyledSpacingContainerComponentProps;
 
-const StyledSpacingContainerComponent: React.FC<
-  StyledSpacingContainerComponentProps
-> = ({
+const StyledSpacingContainerComponent: React.FC<StyledSpacingContainerComponentProps> = ({
   children,
   paddingVertical = 0,
   paddingHorizontal = 0,
@@ -41,15 +38,15 @@ const StyledSpacingContainerComponent: React.FC<
 };
 
 const StyledContainer = styled.View<ExtraStyledSpacingContainerComponentProps>`
-  ${props => props.flex && `flex: ${props.flex};`}
-  padding-top: ${props => props.paddingVertical}px;
-  padding-bottom: ${props => props.paddingVertical}px;
-  padding-left: ${props => props.paddingHorizontal}px;
-  padding-right: ${props => props.paddingHorizontal}px;
-  margin-top: ${props => props.marginVertical}px;
-  margin-bottom: ${props => props.marginVertical}px;
-  margin-left: ${props => props.marginHorizontal}px;
-  margin-right: ${props => props.marginHorizontal}px;
+  ${(props) => props.flex && `flex: ${props.flex};`}
+  padding-top: ${(props) => props.paddingVertical}px;
+  padding-bottom: ${(props) => props.paddingVertical}px;
+  padding-left: ${(props) => props.paddingHorizontal}px;
+  padding-right: ${(props) => props.paddingHorizontal}px;
+  margin-top: ${(props) => props.marginVertical}px;
+  margin-bottom: ${(props) => props.marginVertical}px;
+  margin-left: ${(props) => props.marginHorizontal}px;
+  margin-right: ${(props) => props.marginHorizontal}px;
 `;
 
 export default StyledSpacingContainerComponent;

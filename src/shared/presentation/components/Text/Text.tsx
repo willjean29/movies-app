@@ -1,6 +1,6 @@
-import {TextProps, TouchableOpacity} from 'react-native';
+import { TextProps, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
-import {FontSize, FontSizeType} from '@shared/config/constants/font-sizes';
+import { FontSize, FontSizeType } from '@shared/config/constants/font-sizes';
 interface ExtraStyledTextComponentProps {
   children: React.ReactNode;
   size?: FontSizeType;
@@ -21,12 +21,7 @@ const StyledTextComponent: React.FC<StyledTextComponentProps> = ({
   ...props
 }) => {
   const StyledTextElement = () => (
-    <StyledText
-      weight={weight}
-      mode={mode}
-      size={size}
-      align={align}
-      {...props}>
+    <StyledText weight={weight} mode={mode} size={size} align={align} {...props}>
       {children}
     </StyledText>
   );
@@ -41,14 +36,12 @@ const StyledTextComponent: React.FC<StyledTextComponentProps> = ({
   return <StyledTextElement />;
 };
 
-interface StyledTextProps
-  extends Omit<ExtraStyledTextComponentProps, 'children'> {}
+interface StyledTextProps extends Omit<ExtraStyledTextComponentProps, 'children'> {}
 
 const StyledText = styled.Text<StyledTextProps>`
-  font-size: ${props =>
-    props.size ? `${FontSize[props.size]}px` : `${FontSize.BodyLarge}px`};
-  font-weight: ${props => props.weight};
-  color: ${props => {
+  font-size: ${(props) => (props.size ? `${FontSize[props.size]}px` : `${FontSize.BodyLarge}px`)};
+  font-weight: ${(props) => props.weight};
+  color: ${(props) => {
     switch (props.mode) {
       case 'primary':
         return props.theme.colors.primaryText;
@@ -58,7 +51,7 @@ const StyledText = styled.Text<StyledTextProps>`
         return props.theme.colors.primary;
     }
   }};
-  text-align: ${props => props.align};
+  text-align: ${(props) => props.align};
 `;
 
 export default StyledTextComponent;

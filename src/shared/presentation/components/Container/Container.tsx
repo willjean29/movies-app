@@ -1,6 +1,6 @@
-import {View, ViewProps} from 'react-native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { View, ViewProps } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styled from 'styled-components/native';
 
 interface ExtraStyledContainerComponentProps {
@@ -8,22 +8,16 @@ interface ExtraStyledContainerComponentProps {
   /** Determines whether a scrollview is used to display when the keyboard is active */
   isViewKeyboardAware?: boolean;
 }
-type StyledContainerComponentProps = ViewProps &
-  ExtraStyledContainerComponentProps;
+type StyledContainerComponentProps = ViewProps & ExtraStyledContainerComponentProps;
 
-const StyledContainerComponent: React.FC<StyledContainerComponentProps> = ({
-  children,
-  style,
-  isViewKeyboardAware = false,
-  ...props
-}) => {
-  const {top} = useSafeAreaInsets();
+const StyledContainerComponent: React.FC<StyledContainerComponentProps> = ({ children, style, isViewKeyboardAware = false, ...props }) => {
+  const { top } = useSafeAreaInsets();
 
   return (
-    <StyledContainer style={[{paddingTop: top}, style]} {...props}>
+    <StyledContainer style={[{ paddingTop: top }, style]} {...props}>
       {isViewKeyboardAware ? (
-        <KeyboardAwareScrollView style={{flex: 1}}>
-          <View style={{minHeight: '100%'}}>{children}</View>
+        <KeyboardAwareScrollView style={{ flex: 1 }}>
+          <View style={{ minHeight: '100%' }}>{children}</View>
         </KeyboardAwareScrollView>
       ) : (
         children
@@ -33,7 +27,7 @@ const StyledContainerComponent: React.FC<StyledContainerComponentProps> = ({
 };
 
 const StyledContainer = styled.View`
-  background-color: ${props => props.theme.colors.background};
+  background-color: ${(props) => props.theme.colors.background};
   flex: 1;
 `;
 

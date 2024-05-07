@@ -1,4 +1,4 @@
-import {moderateVerticalScale} from 'react-native-size-matters';
+import { moderateVerticalScale } from 'react-native-size-matters';
 export enum FontSize {
   BodySmall = moderateVerticalScale(12),
   BodyMedium = moderateVerticalScale(14),

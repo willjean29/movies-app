@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import React, { useEffect, useState } from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Login from '@modules/auth/presentation/screens/Login/Login';
 import Register from '@modules/auth/presentation/screens/Register/Register';
 import Enrollment from '@modules/auth/presentation/screens/Enrollment/Enrollment';
-import {AuthRoutesName} from '@modules/auth/domain/routes-names';
-import {AuthStackParamList} from '@modules/auth/domain/navigation';
-import {Splash} from '@shared/presentation/screens/Splash';
+import { AuthRoutesName } from '@modules/auth/domain/routes-names';
+import { AuthStackParamList } from '@modules/auth/domain/navigation';
+import { Splash } from '@shared/presentation/screens/Splash';
 
 const Stack = createStackNavigator<AuthStackParamList>();
 const AuthNavigation = () => {
@@ -15,9 +15,7 @@ const AuthNavigation = () => {
   useEffect(() => {
     const isEnrollment = async () => {
       const value = await AsyncStorage.getItem('isEnrollment');
-      setInitialRoute(
-        value !== null ? AuthRoutesName.Login : AuthRoutesName.Enrollment,
-      );
+      setInitialRoute(value !== null ? AuthRoutesName.Login : AuthRoutesName.Enrollment);
     };
 
     isEnrollment();

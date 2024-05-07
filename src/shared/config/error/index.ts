@@ -1,4 +1,4 @@
-import {RequestError} from './request-error';
+import { RequestError } from './request-error';
 
 export class ErrorApp<T> extends Error {
   readonly code: T;
@@ -6,7 +6,7 @@ export class ErrorApp<T> extends Error {
   readonly title?: string;
   readonly type?: string;
 
-  constructor({code, message, status, title, type}: RequestError<T>) {
+  constructor({ code, message, status, title, type }: RequestError<T>) {
     super(message);
     this.name = 'ErrorApp';
     this.code = code;

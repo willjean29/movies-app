@@ -1,4 +1,4 @@
-import {UserRoles} from '@modules/auth/domain/entities/user.entity';
+import { UserRoles } from '@modules/auth/domain/entities/user.entity';
 
 export interface UserEntityResponse {
   id: string;

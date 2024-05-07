@@ -1,9 +1,7 @@
-import {UserEntity} from '@modules/auth/domain/entities/user.entity';
-import {UserEntityResponse} from '../interfaces/auth.response';
+import { UserEntity } from '@modules/auth/domain/entities/user.entity';
+import { UserEntityResponse } from '../interfaces/auth.response';
 
-export const validateUserMapper = (
-  userResponse: UserEntityResponse,
-): UserEntity => {
+export const validateUserMapper = (userResponse: UserEntityResponse): UserEntity => {
   const user: UserEntity = {
     id: userResponse.id,
     name: userResponse.name,

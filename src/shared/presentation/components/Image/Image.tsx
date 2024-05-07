@@ -1,9 +1,9 @@
-import {ImageSourcePropType, ImageProps} from 'react-native';
-import React, {useState} from 'react';
+import { ImageSourcePropType, ImageProps } from 'react-native';
+import React, { useState } from 'react';
 import styled from 'styled-components/native';
-import {useTheme} from 'styled-components';
-import {TypeTheme} from '@shared/config/theme';
-import {scale} from 'react-native-size-matters';
+import { useTheme } from 'styled-components';
+import { TypeTheme } from '@shared/config/theme';
+import { scale } from 'react-native-size-matters';
 
 interface StyledImageComponetProps {
   source?: ImageSourcePropType;
@@ -18,14 +18,11 @@ const StyledImageComponet: React.FC<StyledImageComponetProps & ImageProps> = ({
   flex,
   ...props
 }) => {
-  const {colors} = useTheme() as TypeTheme;
+  const { colors } = useTheme() as TypeTheme;
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <StyledImageWrapper
-      imgWidth={scale(imgWidth)}
-      imgHeight={scale(imgHeight)}
-      flex={flex}>
+    <StyledImageWrapper imgWidth={scale(imgWidth)} imgHeight={scale(imgHeight)} flex={flex}>
       {isLoading && <StyledSpinner size="large" color={colors.primary} />}
       <StyledImage
         style={{
@@ -43,12 +40,10 @@ const StyledImageWrapper = styled.View<StyledImageComponetProps>`
   flex-direction: row;
   justify-content: center;
   align-content: center;
-  ${props =>
+  ${(props) =>
     props.flex
       ? `flex: ${props.flex};`
-      : `width: ${props.imgWidth ? `${props.imgWidth}px` : '100%'}; height: ${
-          props.imgHeight ? `${props.imgHeight}px` : '100%'
-        };`}
+      : `width: ${props.imgWidth ? `${props.imgWidth}px` : '100%'}; height: ${props.imgHeight ? `${props.imgHeight}px` : '100%'};`}
 `;
 const StyledImage = styled.Image`
   width: 100%;

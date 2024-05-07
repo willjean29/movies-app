@@ -1,5 +1,5 @@
-import {RequestError} from './request-error';
-import {ErrorPageInterface} from './error-page-types';
+import { RequestError } from './request-error';
+import { ErrorPageInterface } from './error-page-types';
 
 interface GetErrorPageInterface extends RequestError<string> {
   onPrimaryActionClick?: () => void;

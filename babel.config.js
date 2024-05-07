@@ -22,19 +22,10 @@ module.exports = function (api) {
       [
         'module-resolver',
         {
-          extensions: [
-            '.js',
-            '.jsx',
-            '.ts',
-            '.tsx',
-            '.android.js',
-            '.android.tsx',
-            '.ios.js',
-            '.ios.tsx',
-          ],
+          extensions: ['.js', '.jsx', '.ts', '.tsx', '.android.js', '.android.tsx', '.ios.js', '.ios.tsx'],
           alias: getAliases(),
         },
       ],
     ],
-  }
+  };
 };

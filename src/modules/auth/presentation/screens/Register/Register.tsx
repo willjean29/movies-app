@@ -1,21 +1,17 @@
-import React, {useState} from 'react';
-import {IconAssets} from '@shared/config/constants/icons';
-import {useNavigation} from '@react-navigation/native';
-import {
-  Container,
-  FlexContainer,
-  SpacingContainer,
-} from '@shared/presentation/components/Container';
-import {Text} from '@shared/presentation/components/Text';
-import {Button} from '@shared/presentation/components/Button';
-import {TextInput} from '@shared/presentation/components/TextInput';
-import {Image} from '@shared/presentation/components/Image';
-import {AuthRoutesName} from '@modules/auth/domain/routes-names';
-import {Controller, useForm} from 'react-hook-form';
-import {yupResolver} from '@hookform/resolvers/yup';
-import {RegisterFormFields} from '@modules/auth/domain/register-form';
-import {RegisterFieldName} from '@modules/auth/domain/register-form-fields';
-import {registerYuupSchema} from './register.schema';
+import React, { useState } from 'react';
+import { IconAssets } from '@shared/config/constants/icons';
+import { useNavigation } from '@react-navigation/native';
+import { Container, FlexContainer, SpacingContainer } from '@shared/presentation/components/Container';
+import { Text } from '@shared/presentation/components/Text';
+import { Button } from '@shared/presentation/components/Button';
+import { TextInput } from '@shared/presentation/components/TextInput';
+import { Image } from '@shared/presentation/components/Image';
+import { AuthRoutesName } from '@modules/auth/domain/routes-names';
+import { Controller, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { RegisterFormFields } from '@modules/auth/domain/register-form';
+import { RegisterFieldName } from '@modules/auth/domain/register-form-fields';
+import { registerYuupSchema } from './register.schema';
 
 const Register = () => {
   const navigation = useNavigation();
@@ -30,7 +26,7 @@ const Register = () => {
   const {
     control,
     handleSubmit,
-    formState: {errors, isValid},
+    formState: { errors, isValid },
   } = useForm<RegisterFormFields>({
     mode: 'all',
     resolver: yupResolver(registerYuupSchema),
@@ -38,7 +34,7 @@ const Register = () => {
   });
 
   const handleRegister = (data: RegisterFormFields) => {
-    console.log({data});
+    console.log({ data });
     // todo : implement register service
   };
   return (
@@ -54,15 +50,14 @@ const Register = () => {
             </Text>
             <SpacingContainer marginVertical={10} marginHorizontal={20}>
               <Text size="BodyMedium" align="center" mode="secondary">
-                Set up your username and password. {'\n'} You can always change
-                it later.
+                Set up your username and password. {'\n'} You can always change it later.
               </Text>
             </SpacingContainer>
           </FlexContainer>
           <Controller
             control={control}
             name={RegisterFieldName.Username}
-            render={({field: {onChange, value}}) => (
+            render={({ field: { onChange, value } }) => (
               <TextInput
                 placeholder="Username"
                 textContentType="username"
@@ -75,7 +70,7 @@ const Register = () => {
           <Controller
             control={control}
             name={RegisterFieldName.Email}
-            render={({field: {onChange, value}}) => (
+            render={({ field: { onChange, value } }) => (
               <TextInput
                 placeholder="Email"
                 textContentType="emailAddress"
@@ -88,7 +83,7 @@ const Register = () => {
           <Controller
             control={control}
             name={RegisterFieldName.Password}
-            render={({field: {onChange, value}}) => (
+            render={({ field: { onChange, value } }) => (
               <TextInput
                 placeholder="Password"
                 textContentType="password"
@@ -104,7 +99,7 @@ const Register = () => {
           <Controller
             control={control}
             name={RegisterFieldName.ConfirmPassword}
-            render={({field: {onChange, value}}) => (
+            render={({ field: { onChange, value } }) => (
               <TextInput
                 placeholder="Confirm Password"
                 textContentType="password"
@@ -126,11 +121,7 @@ const Register = () => {
 
         <FlexContainer>
           <SpacingContainer marginVertical={20}>
-            <FlexContainer
-              mode="row"
-              justifyContent="center"
-              alignItems="center"
-              gap={5}>
+            <FlexContainer mode="row" justifyContent="center" alignItems="center" gap={5}>
               <Text size="BodyMedium">Already have an account? </Text>
               <Text
                 size="BodyMedium"

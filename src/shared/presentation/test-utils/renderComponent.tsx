@@ -1,8 +1,8 @@
-import {AppDispatch, AppState} from '@shared/domain/app-store';
-import {act, render, RenderResult} from '@testing-library/react-native';
-import {GlobalAppProvider} from '../store/app-context';
-import {ThemeProvider} from 'styled-components/native';
-import {lightTheme} from '@shared/config/theme';
+import { AppDispatch, AppState } from '@shared/domain/app-store';
+import { render, RenderResult } from '@testing-library/react-native';
+import { GlobalAppProvider } from '../store/app-context';
+import { ThemeProvider } from 'styled-components/native';
+import { lightTheme } from '@shared/config/theme';
 export interface RenderComponentConfig {
   basePath?: string;
   page?: string;
@@ -12,10 +12,8 @@ export interface RenderComponentConfig {
 interface RenderComponentProps extends RenderComponentConfig {
   Component: React.ReactNode;
 }
-export const renderComponent = async (
-  props: RenderComponentProps,
-): Promise<RenderResult> => {
-  const {Component, stateProps, dispatchApp} = props;
+export const renderComponent = async (props: RenderComponentProps): Promise<RenderResult> => {
+  const { Component, stateProps, dispatchApp } = props;
   let component = {} as RenderResult;
   component = render(
     <GlobalAppProvider testStateProps={stateProps} testDipatch={dispatchApp}>

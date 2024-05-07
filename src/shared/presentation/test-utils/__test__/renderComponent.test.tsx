@@ -1,19 +1,11 @@
-import {AppActions} from '@shared/domain/app-actions.enum';
-import {
-  useGlobalAppDispatch,
-  useGlobalAppState,
-} from '@shared/presentation/store/app-context';
-import {Text, View, TouchableOpacity} from 'react-native';
-import {renderComponent, RenderComponentConfig} from '../renderComponent';
-import {
-  act,
-  fireEvent,
-  RenderResult,
-  screen,
-} from '@testing-library/react-native';
+import { AppActions } from '@shared/domain/app-actions.enum';
+import { useGlobalAppDispatch, useGlobalAppState } from '@shared/presentation/store/app-context';
+import { Text, View, TouchableOpacity } from 'react-native';
+import { renderComponent, RenderComponentConfig } from '../renderComponent';
+import { act, fireEvent, RenderResult, screen } from '@testing-library/react-native';
 
 const TestComponent = () => {
-  const {isFetching} = useGlobalAppState();
+  const { isFetching } = useGlobalAppState();
   const dispatchApp = useGlobalAppDispatch();
   return (
     <View>
@@ -21,7 +13,7 @@ const TestComponent = () => {
       <TouchableOpacity
         accessibilityRole="button"
         onPress={() => {
-          dispatchApp({type: AppActions.IsFetching});
+          dispatchApp({ type: AppActions.IsFetching });
         }}>
         <Text>Run Fetching</Text>
       </TouchableOpacity>
@@ -29,14 +21,11 @@ const TestComponent = () => {
   );
 };
 
-const getActionButton = () =>
-  screen.getByRole('button', {name: 'Run Fetching'});
+const getActionButton = () => screen.getByRole('button', { name: 'Run Fetching' });
 const getActionText = (value: string) => screen.getByText(value);
 
-const renderTestComponent = async (
-  config: RenderComponentConfig = {},
-): Promise<RenderResult> => {
-  return await renderComponent({Component: <TestComponent />, ...config});
+const renderTestComponent = async (config: RenderComponentConfig = {}): Promise<RenderResult> => {
+  return await renderComponent({ Component: <TestComponent />, ...config });
 };
 
 describe('renderComponent test util', () => {
@@ -47,7 +36,7 @@ describe('renderComponent test util', () => {
 
   it('should render the component with the updated state', async () => {
     await renderTestComponent({
-      stateProps: {isFetching: true},
+      stateProps: { isFetching: true },
     });
     expect(getActionText('With Fetching')).toBeDefined();
   });
@@ -63,10 +52,10 @@ describe('renderComponent test util', () => {
 
   it('should call the dispatch function when the button is clicked', async () => {
     const dispatchAppMock = jest.fn();
-    await renderTestComponent({dispatchApp: dispatchAppMock});
+    await renderTestComponent({ dispatchApp: dispatchAppMock });
     await act(async () => {
       fireEvent.press(getActionButton());
     });
-    expect(dispatchAppMock).toHaveBeenCalledWith({type: AppActions.IsFetching});
+    expect(dispatchAppMock).toHaveBeenCalledWith({ type: AppActions.IsFetching });
   });
 });

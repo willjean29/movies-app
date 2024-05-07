@@ -1,13 +1,10 @@
 import React from 'react';
-import {
-  FlexContainer,
-  SpacingContainer,
-} from '@shared/presentation/components/Container';
-import {DeviceDimensions} from '@shared/config/constants/device';
-import {Text} from '@shared/presentation/components/Text';
-import {Icon} from '@shared/presentation/components/Icon';
-import {Image} from '@shared/presentation/components/Image';
-import {ItemSlide} from '@modules/auth/domain/slide.data';
+import { FlexContainer, SpacingContainer } from '@shared/presentation/components/Container';
+import { DeviceDimensions } from '@shared/config/constants/device';
+import { Text } from '@shared/presentation/components/Text';
+import { Icon } from '@shared/presentation/components/Icon';
+import { Image } from '@shared/presentation/components/Image';
+import { ItemSlide } from '@modules/auth/domain/slide.data';
 import Indicator from './Indicator';
 import Title from './Title';
 
@@ -16,11 +13,7 @@ interface SlideProps {
   currentSlideIndex: number;
   goToNextSlide: () => void;
 }
-const Slide: React.FC<SlideProps> = ({
-  item,
-  currentSlideIndex,
-  goToNextSlide,
-}) => {
+const Slide: React.FC<SlideProps> = ({ item, currentSlideIndex, goToNextSlide }) => {
   return (
     <FlexContainer width={DeviceDimensions.Width}>
       <FlexContainer>
@@ -29,12 +22,7 @@ const Slide: React.FC<SlideProps> = ({
           <SpacingContainer marginVertical={10}>
             <Text size="BodyMedium">{item.subtitle}</Text>
           </SpacingContainer>
-          <Icon
-            name="arrow-right-bold"
-            mode="button"
-            size={20}
-            onPress={goToNextSlide}
-          />
+          <Icon name="arrow-right-bold" mode="button" size={20} onPress={goToNextSlide} />
           <Indicator currentSlideIndex={currentSlideIndex} />
         </SpacingContainer>
       </FlexContainer>

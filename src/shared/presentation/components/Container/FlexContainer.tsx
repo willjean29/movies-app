@@ -1,4 +1,4 @@
-import {ViewProps} from 'react-native';
+import { ViewProps } from 'react-native';
 import styled from 'styled-components/native';
 
 interface ExtraStyledFlexContainerComponentProps {
@@ -13,12 +13,9 @@ interface ExtraStyledFlexContainerComponentProps {
   width?: number;
   height?: number;
 }
-type StyledFlexContainerComponentProps = ViewProps &
-  ExtraStyledFlexContainerComponentProps;
+type StyledFlexContainerComponentProps = ViewProps & ExtraStyledFlexContainerComponentProps;
 
-const StyledFlexContainerComponent: React.FC<
-  StyledFlexContainerComponentProps
-> = ({
+const StyledFlexContainerComponent: React.FC<StyledFlexContainerComponentProps> = ({
   children,
   mode,
   justifyContent,
@@ -49,16 +46,15 @@ const StyledFlexContainerComponent: React.FC<
 };
 
 const StyledFlexContainer = styled.View<ExtraStyledFlexContainerComponentProps>`
-  ${props => props.width && `width:${props.width}px`};
-  ${props => props.height && `height:${props.height}px`};
-  ${props => props.mode && `flex-direction: ${props.mode};`}
-  ${props =>
-    props.justifyContent && `justify-content: ${props.justifyContent};`}
-  ${props => props.alignItems && `align-items: ${props.alignItems};`}
-  ${props => props.alignSelf && `align-self: ${props.alignSelf};`}
-  ${props => props.flex && `flex: ${props.flex};`}
-  ${props => props.gap && `gap: ${props.gap}px;`}
-  ${props => props.wrap && `flex-wrap: ${props.wrap};`}
+  ${(props) => props.width && `width:${props.width}px`};
+  ${(props) => props.height && `height:${props.height}px`};
+  ${(props) => props.mode && `flex-direction: ${props.mode};`}
+  ${(props) => props.justifyContent && `justify-content: ${props.justifyContent};`}
+  ${(props) => props.alignItems && `align-items: ${props.alignItems};`}
+  ${(props) => props.alignSelf && `align-self: ${props.alignSelf};`}
+  ${(props) => props.flex && `flex: ${props.flex};`}
+  ${(props) => props.gap && `gap: ${props.gap}px;`}
+  ${(props) => props.wrap && `flex-wrap: ${props.wrap};`}
 `;
 
 export default StyledFlexContainerComponent;
