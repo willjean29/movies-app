@@ -9,12 +9,15 @@ import {
 } from '@shared/domain/app-store';
 import {AppActions} from '@shared/domain/app-actions.enum';
 import {darkTheme, lightTheme, Theme} from '@shared/config/theme';
+import {castDraft} from 'immer';
 
 const AppStateContext = createContext<AppState | undefined>(undefined);
 const AppDispatchContext = createContext<AppDispatch | undefined>(undefined);
 
 export const GlobalAppProvider: React.FC<GlobalAppProviderProps> = ({
   children,
+  testStateProps = {},
+  testDipatch,
 }) => {
   const [state, dispatch] = useReducer(AppReducer, appInitialState);
 
@@ -29,8 +32,8 @@ export const GlobalAppProvider: React.FC<GlobalAppProviderProps> = ({
   }, []);
 
   return (
-    <AppStateContext.Provider value={state}>
-      <AppDispatchContext.Provider value={dispatch}>
+    <AppStateContext.Provider value={castDraft({...state, ...testStateProps})}>
+      <AppDispatchContext.Provider value={testDipatch || dispatch}>
         <StyledThemeProvider
           theme={state.theme === 'light' ? lightTheme : darkTheme}>
           <>
