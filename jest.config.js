@@ -3,6 +3,7 @@ const { defaults: tsjPreset } = require('ts-jest/presets');
 module.exports = {
   ...tsjPreset,
   preset: 'react-native',
+  setupFilesAfterEnv: ["@testing-library/react-native/extend-expect"],
   transform: {
     '^.+\\.jsx$': 'babel-jest',
     '^.+\\.tsx?$': [

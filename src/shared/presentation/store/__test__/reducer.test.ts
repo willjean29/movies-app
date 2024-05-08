@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { Appearance } from 'react-native';
 import { AppActions } from '@shared/domain/app-actions.enum';
 import { userEntityResponseStub } from '@modules/auth/infra/proxy/__stubs__/user-entity-response.stub';
 import { AppReducer, appInitialState } from '../reducer';
@@ -15,6 +14,11 @@ const errorPage: ErrorPageInterface = {
   secondaryText: 'Cancelar',
   secondaryAction: () => null,
 };
+jest.mock('react-native', () => ({
+  Appearance: {
+    getColorScheme: jest.fn(() => undefined),
+  },
+}));
 describe('App Reducer', () => {
   it('should set userIdentity', () => {
     const state = { ...appInitialState };
@@ -33,8 +37,7 @@ describe('App Reducer', () => {
     const finalState = AppReducer(state, { type: AppActions.FinishedFetching });
     expect(finalState).toEqual({ ...appInitialState, isFetching: false, pendingFetches: 0 });
   });
-  it('should save theme ligth', () => {
-    jest.spyOn(Appearance, 'getColorScheme').mockReturnValueOnce('light');
+  it('should save theme dark', () => {
     const state: AppState = { ...appInitialState };
     const finalState = AppReducer(state, { type: AppActions.SaveThemeMode, payload: 'dark' });
     expect(finalState.theme).toEqual('dark');
