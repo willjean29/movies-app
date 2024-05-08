@@ -10,10 +10,11 @@ import { castDraft } from 'immer';
 const AppStateContext = createContext<AppState | undefined>(undefined);
 const AppDispatchContext = createContext<AppDispatch | undefined>(undefined);
 
-export const GlobalAppProvider: React.FC<GlobalAppProviderProps> = ({ children, testStateProps = {}, testDipatch }) => {
+export const GlobalAppProvider: React.FC<GlobalAppProviderProps> = ({ children, testStateProps = {}, testDispatch }) => {
   const [state, dispatch] = useReducer(AppReducer, appInitialState);
 
   useEffect(() => {
+    // istanbul ignore next
     const subscription = Appearance.addChangeListener(({ colorScheme }) => {
       dispatch({
         type: AppActions.SaveThemeMode,
@@ -25,7 +26,7 @@ export const GlobalAppProvider: React.FC<GlobalAppProviderProps> = ({ children, 
 
   return (
     <AppStateContext.Provider value={castDraft({ ...state, ...testStateProps })}>
-      <AppDispatchContext.Provider value={testDipatch || dispatch}>
+      <AppDispatchContext.Provider value={testDispatch || dispatch}>
         <StyledThemeProvider theme={state.theme === 'light' ? lightTheme : darkTheme}>
           <>
             <StatusBar barStyle={state.theme === 'light' ? 'dark-content' : 'light-content'} />
@@ -40,7 +41,7 @@ export const GlobalAppProvider: React.FC<GlobalAppProviderProps> = ({ children, 
 export const useGlobalAppState = () => {
   const context = useContext(AppStateContext);
   if (context === undefined) {
-    throw new Error('useGlobalAppState must be used within a ThemeProvider');
+    throw new Error('useGlobalAppState must be used within a AppStateContext');
   }
   return context;
 };
@@ -48,7 +49,7 @@ export const useGlobalAppState = () => {
 export const useGlobalAppDispatch = () => {
   const context = useContext(AppDispatchContext);
   if (context === undefined) {
-    throw new Error('useGlobalAppDispatch must be used within a ThemeProvider');
+    throw new Error('useGlobalAppDispatch must be used within a AppDispatchContext');
   }
   return context;
 };

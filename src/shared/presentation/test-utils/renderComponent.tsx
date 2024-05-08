@@ -16,7 +16,7 @@ export const renderComponent = async (props: RenderComponentProps): Promise<Rend
   const { Component, stateProps, dispatchApp } = props;
   let component = {} as RenderResult;
   component = render(
-    <GlobalAppProvider testStateProps={stateProps} testDipatch={dispatchApp}>
+    <GlobalAppProvider testStateProps={stateProps} testDispatch={dispatchApp}>
       <ThemeProvider theme={lightTheme}>{Component}</ThemeProvider>
     </GlobalAppProvider>,
   );

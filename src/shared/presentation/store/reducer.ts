@@ -37,7 +37,7 @@ const handleErrorFetching: AppReducerFn = ({ draft, payload }) => {
   draft.error = payload as ErrorPageInterface;
 };
 
-const themeReducerHandlers: Record<AppActions, AppReducerFn> = {
+const appReducerHandlers: Record<AppActions, AppReducerFn> = {
   [AppActions.SaveThemeMode]: handleSaveThemeMode,
   [AppActions.IsFetching]: handleIsFetching,
   [AppActions.FinishedFetching]: handleFinishedFetching,
@@ -46,6 +46,6 @@ const themeReducerHandlers: Record<AppActions, AppReducerFn> = {
 };
 
 export const AppReducer = produce((draft: Draft<AppState>, { type, payload }: DispatchObject<AppActions>) => {
-  const handler = themeReducerHandlers[type] ?? throwUnhandleActionError(type);
+  const handler = appReducerHandlers[type] ?? throwUnhandleActionError(type);
   return handler({ draft, type, payload });
 });

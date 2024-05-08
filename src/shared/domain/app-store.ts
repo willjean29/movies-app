@@ -35,5 +35,5 @@ export interface AppReducerFn {
 
 export interface GlobalAppProviderProps extends PropsWithChildren {
   testStateProps?: Partial<AppState>;
-  testDipatch?: AppDispatch;
+  testDispatch?: AppDispatch;
 }
