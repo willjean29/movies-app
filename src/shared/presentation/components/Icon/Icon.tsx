@@ -4,7 +4,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { IconProps } from 'react-native-vector-icons/Icon';
 import styled, { useTheme } from 'styled-components/native';
 import { TypeTheme } from '@shared/config/theme';
-import { moderateScale, moderateVerticalScale, scale } from 'react-native-size-matters';
+import { moderateScale, scale } from 'react-native-size-matters';
 interface ExtraStyledIconComponentProps {
   mode?: 'icon' | 'button';
 }

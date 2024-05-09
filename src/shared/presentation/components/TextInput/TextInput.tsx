@@ -31,10 +31,10 @@ const StyledInputComponent: React.FC<StyledInputComponentProps> = ({
   return (
     <>
       <StyledInputWrapper error={error}>
-        {iconLeft && <Icon name={iconLeft} size={iconSize} onPress={onPressIconLeft} color={colors.primaryText} />}
+        {iconLeft && <Icon testID="left-icon" name={iconLeft} size={iconSize} onPress={onPressIconLeft} color={colors.primaryText} />}
 
         <StyledInput placeholderTextColor={colors.primaryText} {...props} />
-        {iconRight && <Icon name={iconRight} size={iconSize} onPress={onPressIconRight} color={colors.primaryText} />}
+        {iconRight && <Icon testID="right-icon" name={iconRight} size={iconSize} onPress={onPressIconRight} color={colors.primaryText} />}
       </StyledInputWrapper>
       {error && <TextError message={error} />}
     </>
