@@ -1,7 +1,7 @@
 import { ImageSourcePropType, ImageProps } from 'react-native';
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
-import { useTheme } from 'styled-components';
+import { useTheme } from 'styled-components/native';
 import { TypeTheme } from '@shared/config/theme';
 import { scale } from 'react-native-size-matters';
 
@@ -23,15 +23,15 @@ const StyledImageComponet: React.FC<StyledImageComponetProps & ImageProps> = ({
 
   return (
     <StyledImageWrapper imgWidth={scale(imgWidth)} imgHeight={scale(imgHeight)} flex={flex}>
-      {isLoading && <StyledSpinner size="large" color={colors.primary} />}
+      {isLoading && <StyledSpinner testID="spinner" size="large" color={colors.primary} />}
       <StyledImage
         style={{
           opacity: isLoading ? 0 : 1,
           resizeMode: 'contain',
         }}
-        {...props}
         source={source}
         onLoadEnd={() => setIsLoading(false)}
+        {...props}
       />
     </StyledImageWrapper>
   );
@@ -40,10 +40,7 @@ const StyledImageWrapper = styled.View<StyledImageComponetProps>`
   flex-direction: row;
   justify-content: center;
   align-content: center;
-  ${(props) =>
-    props.flex
-      ? `flex: ${props.flex};`
-      : `width: ${props.imgWidth ? `${props.imgWidth}px` : '100%'}; height: ${props.imgHeight ? `${props.imgHeight}px` : '100%'};`}
+  ${(props) => (props.flex ? `flex: ${props.flex};` : `width: ${props.imgWidth}px; height: ${props.imgHeight}px`)}
 `;
 const StyledImage = styled.Image`
   width: 100%;
