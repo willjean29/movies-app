@@ -10,15 +10,11 @@ const StyledDividerComponent: React.FC<StyledDividerComponentProps> = ({ flexibl
 };
 
 const StyledDivider = styled.View<ExtraStyledDividerComponentProps>`
-  width: 100%;
+  ${(props) => !props.flexible && `width: 100%;`}
   height: 2px;
   border-radius: 2px;
   background-color: ${(props) => props.theme.colors.border};
-  ${(props) =>
-    props.flexible &&
-    css`
-      flex: 1;
-    `}
+  ${(props) => props.flexible && `flex: ${1};`}
 `;
 
 export default StyledDividerComponent;
