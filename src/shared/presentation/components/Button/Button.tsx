@@ -51,8 +51,6 @@ const StyledButton = styled.TouchableOpacity<StyledButtonProps>`
         return props.theme.colors.background;
       case 'contained':
         return props.theme.colors.primary;
-      default:
-        return 'transparent';
     }
   }};
   border-width: ${(props) => (props.mode === 'outlined' ? '1px' : '0px')};
